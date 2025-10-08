@@ -1,0 +1,180 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "title": "The Conjugator",
+      "description": {
+        "en": "A Terminator-themed conjugation game with advanced verb selection and multiple game modes. Perfect for practicing verb tenses while dodging killer robots.",
+        "es": "Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego. Perfecto para practicar los tiempos verbales mientras esquivas robots asesinos."
+      },
+      "link": "https://conjugator.pablotorrado.site",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN2001"],
+        "es": ["SPAN1001", "SPAN2001"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-01-15",
+      "usageCount": 0
+    },
+    {
+      "id": 2,
+      "title": "SPAN1001 Palabrero",
+      "description": {
+        "en": "Interactive word game designed for SPAN1001 students. Each day presents a new word from the textbook vocabulary, following the semester's academic calendar.",
+        "es": "Juego de palabras interactivo diseñado para estudiantes del curso SPAN1001. Cada día presenta una nueva palabra del vocabulario del libro de texto, siguiendo el calendario académico del semestre."
+      },
+      "link": "https://1001palabrero.netlify.app",
+      "subjects": {
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-02-20",
+      "usageCount": 0
+    },
+    {
+      "id": 3,
+      "title": "Desencripta",
+      "description": {
+        "en": "Digital adaptation of the Decrypto board game. Built with HTML, CSS and JavaScript, bringing the secret code transmission experience to your browser. Extensive vocabulary with 900+ lexical units.",
+        "es": "Adaptación digital del juego de mesa Decrypto. Desarrollado con HTML, CSS y JavaScript, lleva la experiencia de transmitir códigos secretos al navegador. Amplio vocabulario con más de 900 unidades léxicas."
+      },
+      "link": "https://desencripta.pablotorrado.site",
+      "subjects": {
+        "en": ["SPAN2001", "SPAN2002"],
+        "es": ["SPAN2001", "SPAN2002"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-03-10",
+      "usageCount": 0
+    },
+    {
+      "id": 4,
+      "title": "Batalla Verbal",
+      "description": {
+        "en": "Innovative game combining classic battleship strategy with grammar practice. Each attack requires correct verb conjugation. Sink your frenemy with your verb-missiles!",
+        "es": "Innovador juego que combina la estrategia del clásico hundir la flota con práctica de gramática. Cada ataque requiere conjugar un verbo correctamente. ¡Hunde a tu frenemigo con tus verbomisiles!"
+      },
+      "link": "https://batallaverbal.netlify.app",
+      "subjects": {
+        "en": ["SPAN1002", "SPAN2001"],
+        "es": ["SPAN1002", "SPAN2001"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-03-25",
+      "usageCount": 0
+    },
+    {
+      "id": 5,
+      "title": "Atún Feliz",
+      "description": {
+        "en": "Digital adaptation of the Happy Salmon card game, created for educational purposes to practice vocabulary and reflexes. Features animations and sounds that make the experience more engaging.",
+        "es": "Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos. Incluye animaciones y sonidos que amenizan la experiencia."
+      },
+      "link": "https://atunfeliz.pablotorrado.site",
+      "subjects": {
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-04-05",
+      "usageCount": 0
+    },
+    {
+      "id": 6,
+      "title": "Charaditas",
+      "description": {
+        "en": "Our personal version of Charades with A1 and A2 CEFR vocabulary. Perfect for practicing vocabulary in a fun and group-friendly way.",
+        "es": "Nuestra versión personal de Charades con vocabulario de A1 y A2 del MCERL. Ideal para practicar vocabulario de forma divertida y en grupo."
+      },
+      "link": "https://charaditas.pablotorrado.site",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN1002"],
+        "es": ["SPAN1001", "SPAN1002"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-04-18",
+      "usageCount": 0
+    },
+    {
+      "id": 7,
+      "title": "Palabras Clave",
+      "description": {
+        "en": "Secret code game for Spanish students using the CVC word bank (A1-A2 level). Perfect for reviewing vocabulary and fostering teamwork.",
+        "es": "Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2). Ideal para repasar vocabulario y fomentar el trabajo en equipo."
+      },
+      "link": "https://palabrasclave.pablotorrado.site",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN1002", "SPAN2001"],
+        "es": ["SPAN1001", "SPAN1002", "SPAN2001"]
+      },
+      "type": {
+        "en": "Game",
+        "es": "Juego"
+      },
+      "dateAdded": "2024-05-02",
+      "usageCount": 0
+    },
+    {
+      "id": 8,
+      "title": "El Alma de Sevilla",
+      "description": {
+        "en": "An immersive interactive Spanish learning experience set in the heart of Seville. Follow Leo, a young student from Hong Kong, as he discovers the mysteries and beauty of Andalusia through photography, friendship, and language learning.",
+        "es": "Una experiencia inmersiva e interactiva de aprendizaje de español ambientada en el corazón de Sevilla. Sigue a Leo, un joven estudiante de Hong Kong, mientras descubre los misterios y la belleza de Andalucía a través de la fotografía, la amistad y el aprendizaje de idiomas."
+      },
+      "link": "https://elalmadesevilla.netlify.app/",
+      "subjects": {
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
+      },
+      "type": {
+        "en": "Resource",
+        "es": "Recurso"
+      },
+      "dateAdded": "2025-06-21",
+      "usageCount": 0
+    },
+    {
+      "id": 9,
+      "title": "Mapa de Recursos Español",
+      "description": {
+        "en": "Interactive resource map created in Miro containing comprehensive materials and tools for Spanish language learning. Visual organization of resources across all course levels.",
+        "es": "Mapa interactivo de recursos creado en Miro que contiene materiales y herramientas completas para el aprendizaje del español. Organización visual de recursos para todos los niveles del curso."
+      },
+      "link": "https://miro.com/app/board/o9J_lM0Ezo4=/",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"],
+        "es": ["SPAN1001", "SPAN1002", "SPAN2001", "SPAN2002"]
+      },
+      "type": {
+        "en": "Resource",
+        "es": "Recurso"
+      },
+      "dateAdded": "2024-08-28",
+      "usageCount": 0
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "lastUpdated": "2025-08-28",
+    "totalTools": 9
+  }
+}
