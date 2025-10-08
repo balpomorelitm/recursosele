@@ -536,6 +536,25 @@ body:not([data-theme="dark"]) .moon-icon {
     gap: 3px;
 }
 
+.tool-type {
+    font-weight: 600;
+    color: #006837;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.tool-date {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .tool-type {
+    color: #4caf50;
+}
+
+[data-theme="dark"] .tool-date {
+    color: var(--text-secondary);
+}
+
 .tool-description {
     color: var(--text-secondary);
     line-height: 1.6;
@@ -560,6 +579,12 @@ body:not([data-theme="dark"]) .moon-icon {
     border: 1px solid rgba(0, 140, 69, 0.2);
 }
 
+.tag.label {
+    background: rgba(0, 140, 69, 0.05);
+    color: #006837;
+    border-style: dashed;
+}
+
 .tag.subject {
     background: rgba(200, 16, 46, 0.1);
     color: #c8102e;
@@ -576,6 +601,11 @@ body:not([data-theme="dark"]) .moon-icon {
     background: rgba(0, 140, 69, 0.2);
     color: #4caf50;
     border: 1px solid rgba(0, 140, 69, 0.3);
+}
+
+[data-theme="dark"] .tag.label {
+    background: rgba(0, 140, 69, 0.15);
+    color: #4caf50;
 }
 
 [data-theme="dark"] .tag.subject {
