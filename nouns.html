@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Nouns: Spanish vs. Chinese</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            background-color: #eef2f5;
+            border-bottom: 2px solid #d1d9e0;
+        }
+        .tab-link {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 500;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+        .tab-link:hover {
+            background-color: #d1d9e0;
+        }
+        .tab-link.active {
+            background-color: #ffffff;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: -2px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 25px;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1, h2 { color: #0056b3; }
+        h3 { color: #17a2b8; }
+        
+        /* Exercise Styling */
+        .exercise-form {
+            margin-top: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9fafb;
+            border: 1px solid #e1e5e8;
+            border-radius: 6px;
+        }
+        .question label {
+            margin-right: 15px;
+        }
+        .feedback {
+            font-size: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .correct { color: #28a745; }
+        .incorrect { color: #dc3545; }
+        
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80px;
+        }
+
+        /* Buttons and Results */
+        .exercise-controls {
+            margin-top: 25px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn-check {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-check:hover {
+            background-color: #0056b3;
+        }
+        .btn-reset {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-reset:hover {
+            background-color: #5a6268;
+        }
+        .result-display {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px;
+            background-color: #e9f7fd;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Theory')">Teoría</button>
+            <button class="tab-link" onclick="openTab(event, 'Exercise1')">Ejercicio 1: Cuantificación</button>
+            <button class="tab-link" onclick="openTab(event, 'Exercise2')">Ejercicio 2: Artículos</button>
+        </header>
+
+        <div id="Theory" class="tab-content active">
+            <h2>Introduction</h2>
+            <p>In this unit, we will explore how nouns work differently in Spanish compared to Mandarin or Cantonese. Understanding these differences will help you grasp why certain grammatical structures are used in Spanish and how they might differ from your native language. Today, we will start with the concept of determination and how it impacts the use of nouns.</p>
+
+            <h2>1. Determination in Spanish Nouns</h2>
+            <p>In Spanish, nouns must always be determined. This means that a noun in Spanish cannot stand alone without something that tells us more about what it refers to. It always needs an article or a determiner (such as "the," "a," "my," "this," etc.) to clarify if we are talking about something specific or general.</p>
+            <p>For example:</p>
+            <ul>
+                <li>"el perro" (the dog) refers to a specific dog.</li>
+                <li>"un perro" (a dog) refers to any dog, not one in particular.</li>
+            </ul>
+            <p>This determination helps us understand exactly what is being referred to in a sentence. In Spanish, nouns are units or entities that need to be clearly defined, whether they are specific or general.</p>
+
+            <h3>How Does This Differ from Mandarin and Cantonese?</h3>
+            <p>In Mandarin and Cantonese, nouns do not necessarily need this kind of determination. Nouns in these languages often refer to qualities or classes rather than specific units. For example, a noun like "dog" in Mandarin (狗 / gǒu) can refer generally to the concept of "dog" without requiring an article or determiner. The language does not necessarily specify if we are talking about one dog or all dogs unless additional context is provided.</p>
+            <p>Moreover, when quantity needs to be specified in Mandarin or Cantonese, classifiers are used, such as “一只狗” (yī zhī gǒu – one dog), where "只" (“zhī”) acts as a classifier. Unlike Spanish, these classifiers help identify the quantity or unit without requiring a direct determiner for every noun.</p>
+
+            <h3>How Does This Differ from English?</h3>
+            <p>English falls somewhere in between Spanish and Mandarin/Cantonese in terms of determination. While many nouns in English do require determiners, such as "the" or "a," it is also possible to use certain nouns without any determiner, especially when talking about general concepts or uncountable nouns. For example:</p>
+            <ul>
+                <li>"Water is essential for life."</li>
+                <li>"Books are important for education."</li>
+            </ul>
+            <p>Unlike Spanish, English can sometimes omit determiners when the meaning is clear from context, similar to how Mandarin or Cantonese might handle general nouns. However, in English, the use of determiners is still more frequent compared to Mandarin/Cantonese, making it a language that occupies an intermediate space, similar to Russian in this regard.</p>
+
+            <h3>Key Differences Recap</h3>
+            <ul>
+                <li>In Spanish, nouns are treated as specific units or entities, and they always require determination.</li>
+                <li>In Mandarin and Cantonese, nouns can refer to general qualities or classes without requiring a determiner unless it is necessary to specify quantity or specificity.</li>
+                <li>In English, nouns can sometimes be used without determiners, especially when referring to general concepts or uncountable nouns, placing it between Spanish and Mandarin/Cantonese in terms of how determination is applied.</li>
+            </ul>
+
+            <h2>2. Quantification in Spanish vs. Mandarin and Cantonese</h2>
+            <p>Another important difference between Spanish and Mandarin/Cantonese is how nouns are quantified. In Spanish, nouns can be countable or uncountable, and this distinction affects how they are quantified and used in sentences.</p>
+
+            <h3>Quantification in Spanish</h3>
+            <p>In Spanish, when quantifying nouns, it is obligatory to show the exact quantity or amount using specific determiners and quantifiers. For example:</p>
+            <ul>
+                <li>"tres libros" (three books) indicates a specific number of countable items.</li>
+            </ul>
+            <p>Countable nouns in Spanish can take specific numbers or quantifiers, and they must agree in number with any determiners or adjectives used. For example:</p>
+            <ul>
+                <li>"muchas sillas" (many chairs) uses the plural form to indicate multiple items.</li>
+                <li>"dos gatos" (two cats) clearly indicates the exact number of cats.</li>
+            </ul>
+            <p>Uncountable nouns, on the other hand, function somewhat similarly to nouns in Mandarin or Cantonese. They do not need to specify an exact quantity as countable nouns do, but they often require a quantifier to indicate some form of amount or reference, such as 'mucho/a.' In Mandarin or Cantonese, nouns can often remain undetermined and unquantified without needing additional context, which contrasts with Spanish where some form of quantification or determination is usually required.</p>
+
+            <h3>Quantification in Mandarin and Cantonese</h3>
+            <p>In Mandarin and Cantonese, quantification works differently. Instead of directly attaching numbers to nouns as in Spanish, these languages use classifiers or measure words to specify the quantity. For example:</p>
+            <ul>
+                <li>In Mandarin, you would say “一只狗” (yī zhī gǒu – one dog), where "只" (“zhī”) is a classifier that specifies the type of entity being counted. The classifier changes depending on the noun being quantified.</li>
+                <li>Similarly, in Cantonese, classifiers are used to indicate quantities, and each classifier is specific to the type of noun it refers to, such as “一本书” (yat1 bun2 syu1 – one book), where "本" (“bun2”) is the classifier for books.</li>
+            </ul>
+            <p>This system means that in Mandarin and Cantonese, the classifier provides additional information about the nature of the noun being quantified, whether it is an animal, a book, or a piece of furniture. The use of classifiers is necessary to convey both quantity and the type of noun, whereas Spanish directly quantifies the noun without requiring an intermediary classifier.</p>
+
+            <h3>Examples from the Presentation</h3>
+            <p>Consider the following examples to illustrate these differences:</p>
+            <ul>
+                <li>In Spanish: "Dos sillas" (two chairs) directly quantifies the noun without additional elements.</li>
+                <li>In Mandarin: "两把椅子" (liǎng bǎ yǐzi – two chairs) uses "把" (“bǎ”) as the classifier for chairs.</li>
+                <li>In Spanish: "Mucho dinero" (a lot of money) uses the quantifier "mucho" to indicate an uncountable amount.</li>
+                <li>In Mandarin: "很多钱" (hěn duō qián – a lot of money) similarly uses "很多" (“hěn duō”) to indicate a large, uncountable amount, but without needing a classifier for this type of noun.</li>
+            </ul>
+
+            <h3>Key Differences Recap</h3>
+            <ul>
+                <li>In Spanish, countable nouns are quantified directly with numbers or quantifiers, and uncountable nouns use quantifiers like "mucho/a."</li>
+                <li>In Mandarin and Cantonese, classifiers are required to quantify nouns, providing additional information about the type of noun being counted.</li>
+                <li>The use of classifiers in Mandarin and Cantonese makes quantification more complex but also more specific in describing the nature of the noun.</li>
+            </ul>
+        </div>
+
+
+        <div id="Exercise1" class="tab-content">
+            <h2>Ejercicio 1: Sustantivos Contables vs. Incontables</h2>
+            <p>Determina si cada sustantivo es <strong>contable</strong> (countable) o <strong>incontable</strong> (uncountable) en español.</p>
+            <form id="quantificationForm" class="exercise-form">
+                <div class="question">
+                    1. Agua (water)
+                    <label><input type="radio" name="q1" value="Countable"> Contable</label>
+                    <label><input type="radio" name="q1" value="Uncountable"> Incontable</label>
+                    <span class="feedback" id="feedback-q1"></span>
+                </div>
+                <div class="question">
+                    2. Libro (book)
+                    <label><input type="radio" name="q2" value="Countable"> Contable</label>
+                    <label><input type="radio" name="q2" value="Uncountable"> Incontable</label>
+                    <span class="feedback" id="feedback-q2"></span>
+                </div>
+                <div class="question">
+                    3. Dinero (money)
+                    <label><input type="radio" name="q3" value="Countable"> Contable</label>
+                    <label><input type="radio" name="q3" value="Uncountable"> Incontable</label>
+                    <span class="feedback" id="feedback-q3"></span>
+                </div>
+                <div class="question">
+                    4. Mesa (table)
+                    <label><input type="radio" name="q4" value="Countable"> Contable</label>
+                    <label><input type="radio" name="q4" value="Uncountable"> Incontable</label>
+                    <span class="feedback" id="feedback-q4"></span>
+                </div>
+                <div class="question">
+                    5. Azúcar (sugar)
+                    <label><input type="radio" name="q5" value="Countable"> Contable</label>
+                    <label><input type="radio" name="q5" value="Uncountable"> Incontable</label>
+                    <span class="feedback" id="feedback-q5"></span>
+                </div>
+            </form>
+            <div class="exercise-controls">
+                <button class="btn btn-check" onclick="checkQuantification()">Corregir</button>
+                <button class="btn btn-reset" onclick="resetQuantification()">Reintentar</button>
+            </div>
+            <div class="result-display" id="result-quantification" style="display:none;"></div>
+        </div>
+
+        <div id="Exercise2" class="tab-content">
+            <h2>Ejercicio 2: Uso de Artículos</h2>
+            <p>Completa los espacios con el artículo correcto (el, la, los, las, un, una, unos, unas) o déjalo en blanco si no es necesario.</p>
+            <form id="articlesForm" class="exercise-form">
+                <div class="question">
+                    1. Me gusta beber <input type="text" id="a1"> leche por la mañana. <span class="feedback" id="feedback-a1"></span>
+                </div>
+                <div class="question">
+                    2. Quiero comprar <input type="text" id="a2"> coche nuevo. <span class="feedback" id="feedback-a2"></span>
+                </div>
+                <div class="question">
+                    3. <input type="text" id="a3"> paciencia es una virtud. <span class="feedback" id="feedback-a3"></span>
+                </div>
+                <div class="question">
+                    4. Vi <input type="text" id="a4"> perros jugando en el parque. <span class="feedback" id="feedback-a4"></span>
+                </div>
+                <div class="question">
+                    5. No tengo <input type="text" id="a5"> dinero para el cine. <span class="feedback" id="feedback-a5"></span>
+                </div>
+                 <div class="question">
+                    6. <input type="text" id="a6"> agua de este río está muy limpia. <span class="feedback" id="feedback-a6"></span>
+                </div>
+            </form>
+            <div class="exercise-controls">
+                <button class="btn btn-check" onclick="checkArticles()">Corregir</button>
+                <button class="btn btn-reset" onclick="resetArticles()">Reintentar</button>
+            </div>
+            <div class="result-display" id="result-articles" style="display:none;"></div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Tab Navigation Logic ---
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // --- Exercise 1: Quantification Logic ---
+        const quantificationAnswers = {
+            q1: "Uncountable",
+            q2: "Countable",
+            q3: "Uncountable",
+            q4: "Countable",
+            q5: "Uncountable"
+        };
+        const totalQuantQuestions = Object.keys(quantificationAnswers).length;
+
+        function checkQuantification() {
+            let score = 0;
+            for (let i = 1; i <= totalQuantQuestions; i++) {
+                const qName = 'q' + i;
+                const feedbackEl = document.getElementById('feedback-' + qName);
+                const radios = document.getElementsByName(qName);
+                let userAnswer = '';
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        userAnswer = radio.value;
+                        break;
+                    }
+                }
+
+                if (userAnswer === quantificationAnswers[qName]) {
+                    feedbackEl.textContent = '✔';
+                    feedbackEl.className = 'feedback correct';
+                    score++;
+                } else {
+                    feedbackEl.textContent = '❌';
+                    feedbackEl.className = 'feedback incorrect';
+                }
+            }
+            
+            const percentage = Math.round((score / totalQuantQuestions) * 100);
+            const resultDisplay = document.getElementById('result-quantification');
+            resultDisplay.textContent = `Resultado: ${score} de ${totalQuantQuestions} correctas (${percentage}%)`;
+            resultDisplay.style.display = 'block';
+        }
+
+        function resetQuantification() {
+            document.getElementById('quantificationForm').reset();
+            for (let i = 1; i <= totalQuantQuestions; i++) {
+                document.getElementById('feedback-q' + i).textContent = '';
+            }
+            document.getElementById('result-quantification').style.display = 'none';
+        }
+
+        // --- Exercise 2: Articles Logic ---
+        const articleAnswers = {
+            a1: "",
+            a2: "un",
+            a3: "la",
+            a4: "unos",
+            a5: "",
+            a6: "el"
+        };
+        const totalArticleQuestions = Object.keys(articleAnswers).length;
+        
+        function checkArticles() {
+            let score = 0;
+            for (let i = 1; i <= totalArticleQuestions; i++) {
+                const qId = 'a' + i;
+                const feedbackEl = document.getElementById('feedback-' + qId);
+                const inputEl = document.getElementById(qId);
+                const userAnswer = inputEl.value.trim().toLowerCase();
+                
+                if (userAnswer === articleAnswers[qId]) {
+                    feedbackEl.textContent = '✔';
+                    feedbackEl.className = 'feedback correct';
+                    score++;
+                } else {
+                    feedbackEl.textContent = '❌';
+                    feedbackEl.className = 'feedback incorrect';
+                }
+            }
+            
+            const percentage = Math.round((score / totalArticleQuestions) * 100);
+            const resultDisplay = document.getElementById('result-articles');
+            resultDisplay.textContent = `Resultado: ${score} de ${totalArticleQuestions} correctas (${percentage}%)`;
+            resultDisplay.style.display = 'block';
+        }
+
+        function resetArticles() {
+            document.getElementById('articlesForm').reset();
+            for (let i = 1; i <= totalArticleQuestions; i++) {
+                document.getElementById('feedback-a' + i).textContent = '';
+            }
+            document.getElementById('result-articles').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
