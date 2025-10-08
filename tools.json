@@ -170,11 +170,49 @@
       },
       "dateAdded": "2024-08-28",
       "usageCount": 0
+    },
+    {
+      "id": 10,
+      "title": "Conjugador de \"ser\"",
+      "description": {
+        "en": "Interactive practice for the verb ser across present, past, and future tenses with visual clues and instant feedback.",
+        "es": "Práctica interactiva del verbo ser en presente, pasado y futuro con pistas visuales y retroalimentación inmediata."
+      },
+      "link": "herramientas/conjugador-ser/Conjugaciónser2.html",
+      "subjects": {
+        "en": ["SPAN1001", "SPAN1002"],
+        "es": ["SPAN1001", "SPAN1002"]
+      },
+      "type": {
+        "en": "Interactive Practice",
+        "es": "Práctica interactiva"
+      },
+      "dateAdded": "2024-09-27",
+      "usageCount": 0
+    },
+    {
+      "id": 11,
+      "title": "Clasificador de sustantivos",
+      "description": {
+        "en": "Drag-and-drop activity to sort nouns by theme, gender, and translation while strengthening early vocabulary.",
+        "es": "Actividad de arrastrar y soltar para clasificar sustantivos por tema, género y traducción y reforzar el vocabulario inicial."
+      },
+      "link": "herramientas/clasificador-sustantivos/nouns.html",
+      "subjects": {
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
+      },
+      "type": {
+        "en": "Interactive Activity",
+        "es": "Actividad interactiva"
+      },
+      "dateAdded": "2024-09-27",
+      "usageCount": 0
     }
   ],
   "metadata": {
     "version": "2.0",
-    "lastUpdated": "2025-08-28",
-    "totalTools": 9
+    "lastUpdated": "2024-09-27",
+    "totalTools": 11
   }
 }
