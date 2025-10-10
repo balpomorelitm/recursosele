@@ -97,3 +97,67 @@ nav a:hover {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5em;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1em;
+}
+
+.grid-inputs.two-columns {
+    grid-template-columns: 1fr 1fr;
+}
+
+.table-container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+}
+
+table.check-table, table.fill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+table.check-table th, table.check-table td,
+table.fill-table th, table.fill-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table.check-table th, table.fill-table th {
+    background-color: #f2f2f2;
+}
+
+table.check-table td:first-child, table.fill-table td:first-child {
+    text-align: left;
+}
+
+table.fill-table input {
+    width: 90%;
+}
+
+tr.correct {
+    background-color: #eafaf1; /* Light green for correct rows */
+}
+
+tr.incorrect {
+    background-color: #fbeeee; /* Light red for incorrect rows */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 1em;
+}
