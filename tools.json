@@ -208,11 +208,30 @@
       },
       "dateAdded": "2024-09-27",
       "usageCount": 0
+    },
+    {
+      "id": 12,
+      "title": "SPAN1001 Review",
+      "description": {
+        "en": "Comprehensive review hub for SPAN1001 featuring vocabulary, grammar, and listening practice activities.",
+        "es": "Centro de repaso integral para SPAN1001 con actividades de vocabulario, gramática y comprensión auditiva."
+      },
+      "link": "spanish-exercises/index.html",
+      "subjects": {
+        "en": ["SPAN1001"],
+        "es": ["SPAN1001"]
+      },
+      "type": {
+        "en": "Interactive Practice",
+        "es": "Práctica interactiva"
+      },
+      "dateAdded": "2024-10-01",
+      "usageCount": 0
     }
   ],
   "metadata": {
     "version": "2.0",
-    "lastUpdated": "2024-09-27",
-    "totalTools": 11
+    "lastUpdated": "2024-10-01",
+    "totalTools": 12
   }
 }
