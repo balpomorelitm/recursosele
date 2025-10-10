@@ -97,3 +97,126 @@ nav a:hover {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.instruction-box {
+  background-color: #fef9e7;
+  border-left: 4px solid #f1c40f;
+  padding: 15px;
+  margin-bottom: 2em;
+}
+
+.two-column-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1em;
+  justify-items: center;
+  align-items: end;
+  margin-top: 1em;
+}
+
+.image-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.image-item img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 100px;
+  height: auto;
+}
+
+.image-item input[type="text"] {
+  width: 90%;
+  margin-top: 0.5em;
+}
+
+.calculation-grid,
+.g-words-grid,
+.word-list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.comparison-table th {
+  background-color: #f2f2f2;
+}
+
+.comparison-table td:first-child {
+  text-align: center;
+  width: 30px;
+}
+
+.comparison-table input[type="text"] {
+  width: 95%;
+  box-sizing: border-box;
+}
+
+.word-group {
+  display: inline-block;
+  margin-right: 1.5em;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.word-group input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.word-group.correct {
+  background-color: #eafaf1;
+  border-color: #2ecc71;
+}
+
+.word-group.incorrect {
+  background-color: #fbeeee;
+  border-color: #e74c3c;
+}
+
+.note {
+  font-style: italic;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .two-column-text {
+    grid-template-columns: 1fr;
+  }
+
+  .calculation-grid,
+  .g-words-grid,
+  .word-list-grid {
+    grid-template-columns: 1fr;
+  }
+}

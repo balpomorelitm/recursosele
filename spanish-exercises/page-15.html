@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 15 - Ejercicios de Español</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Nosotros y Nosotras</h1>
+      <p><a href="index.html">⟵ Volver al índice</a></p>
+    </div>
+  </header>
+  <main class="container">
+    <section class="exercise" id="ex17">
+      <h3>17. Listen to the following words and circle the ones you hear.</h3>
+      <p>
+        <span class="word-group"><input type="checkbox" data-answer="cuatro" id="w17a1" value="cuatro"> <label for="w17a1">cuatro</label></span>
+        <span class="word-group"><input type="checkbox" id="w17a2" value="cuarto"> <label for="w17a2">cuarto</label></span>
+        <span class="word-group"><input type="checkbox" data-answer="caña" id="w17b1" value="caña"> <label for="w17b1">caña</label></span>
+        <span class="word-group"><input type="checkbox" id="w17b2" value="cana"> <label for="w17b2">cana</label></span>
+      </p>
+      <p>
+        <span class="word-group"><input type="checkbox" data-answer="ceso" id="w17c1" value="ceso"> <label for="w17c1">ceso</label></span>
+        <span class="word-group"><input type="checkbox" id="w17c2" value="queso"> <label for="w17c2">queso</label></span>
+        <span class="word-group"><input type="checkbox" data-answer="lama" id="w17d1" value="lama"> <label for="w17d1">lama</label></span>
+        <span class="word-group"><input type="checkbox" id="w17d2" value="llama"> <label for="w17d2">llama</label></span>
+      </p>
+      <p>
+        <span class="word-group"><input type="checkbox" data-answer="perro" id="w17e1" value="perro"> <label for="w17e1">perro</label></span>
+        <span class="word-group"><input type="checkbox" id="w17e2" value="pero"> <label for="w17e2">pero</label></span>
+        <span class="word-group"><input type="checkbox" data-answer="me" id="w17f1" value="me"> <label for="w17f1">me</label></span>
+        <span class="word-group"><input type="checkbox" id="w17f2" value="mi"> <label for="w17f2">mi</label></span>
+      </p>
+      <p class="note">(Note: This exercise requires an audio file to function as intended. User will simulate listening.)</p>
+      <button type="button" onclick="checkSelectedWords('ex17')">Corregir</button>
+      <div class="result" id="result-ex17"></div>
+    </section>
+
+    <section class="exercise" id="ex18">
+      <h3>18. Repeat the words from exercise 17 out loud, paying close attention to their pronunciation.</h3>
+      <p class="note">(This is a listening/speaking exercise, no auto-correction needed.)</p>
+    </section>
+
+    <section class="exercise" id="ex19">
+      <h3>19. Listen and write down these words containing the letter g.</h3>
+      <div class="g-words-grid">
+        <div>
+          <p>• <input type="text" data-answer="gasolina" size="10"></p>
+          <p>• <input type="text" data-answer="gato" size="10"></p>
+          <p>• <input type="text" data-answer="guitarra" size="10"></p>
+          <p>• <input type="text" data-answer="gobierno" size="10"></p>
+          <p>• <input type="text" data-answer="gusanito" size="10"></p>
+        </div>
+        <div>
+          <p>• <input type="text" data-answer="paraguas" size="10"></p>
+          <p>• <input type="text" data-answer="gorro" size="10"></p>
+          <p>• <input type="text" data-answer="general" size="10"></p>
+          <p>• <input type="text" data-answer="águila|aguila" size="10"></p>
+          <p>• <input type="text" data-answer="inteligente" size="10"></p>
+        </div>
+      </div>
+      <button type="button" onclick="checkExercise('ex19')">Corregir</button>
+      <div class="result" id="result-ex19"></div>
+    </section>
+
+    <section class="exercise" id="ex20">
+      <h3>20. Write down the words you hear:</h3>
+      <p class="note">(This exercise requires an audio file to function as intended. User will simulate listening.)</p>
+      <div class="word-list-grid">
+        <div>
+          <p>• <input type="text" data-answer="casa" size="15"></p>
+          <p>• <input type="text" data-answer="cine" size="15"></p>
+          <p>• <input type="text" data-answer="coche" size="15"></p>
+          <p>• <input type="text" data-answer="corazón|corazon" size="15"></p>
+          <p>• <input type="text" data-answer="cuatro" size="15"></p>
+        </div>
+        <div>
+          <p>• <input type="text" data-answer="cero" size="15"></p>
+          <p>• <input type="text" data-answer="cebra" size="15"></p>
+          <p>• <input type="text" data-answer="ceja" size="15"></p>
+          <p>• <input type="text" data-answer="circo" size="15"></p>
+          <p>• <input type="text" data-answer="ciudad" size="15"></p>
+        </div>
+      </div>
+      <button type="button" onclick="checkExercise('ex20')">Corregir</button>
+      <div class="result" id="result-ex20"></div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
