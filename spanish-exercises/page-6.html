@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página 6 - Ejercicios</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 6 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Página 6</h1>
-    <p>Practica las estructuras comunicativas de la unidad.</p>
-    <p><a href="index.html">⟵ Volver al índice</a></p>
-  </header>
-  <main>
-    <section class="exercise" id="ex1">
-      <h3>1. Une el principio de cada pregunta con su final.</h3>
-      <p>a. ¿Puedes
-        <select data-answer="repetir, por favor?">
-          <option value="">Selecciona una opción</option>
-          <option value="repetir, por favor?">repetir, por favor?</option>
-          <option value="hacerlo otra vez?">hacerlo otra vez?</option>
-          <option value="ayudarme con esto?">ayudarme con esto?</option>
-        </select>
-      </p>
-      <p>b. ¿Qué quiere decir
-        <select data-answer="significa 'escribir'?"><option value="">Selecciona una opción</option>
-          <option value="significa 'escribir'?">significa 'escribir'?</option>
-          <option value="cómo se escribe?">cómo se escribe?</option>
-          <option value="lo puedes repetir?">lo puedes repetir?</option>
-        </select>
-      </p>
-      <p>c. ¿Cómo se dice
-        <select data-answer="en español?"><option value="">Selecciona una opción</option>
-          <option value="en español?">en español?</option>
-          <option value="significa 'escribir'?">significa 'escribir'?</option>
-          <option value="puedes ayudarme?">puedes ayudarme?</option>
-        </select>
-      </p>
-      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
-      <div class="result" id="result-ex1"></div>
-    </section>
+    <div class="container">
+        <h1>NOSOTROS Y NOSOTRAS</h1>
 
-    <section class="exercise" id="ex2">
-      <h3>2. Completa las frases con la palabra correcta.</h3>
-      <p>a. ¿<label for="ex2-a" class="sr-only">Completa la frase a</label><input id="ex2-a" type="text" data-answer="puedes"> ayudarme?</p>
-      <p>b. ¿Puedes repetirlo más <label for="ex2-b" class="sr-only">Completa la palabra b</label><input id="ex2-b" type="text" data-answer="despacio|lento">?</p>
-      <p>c. ¿Qué <label for="ex2-c" class="sr-only">Completa la palabra c</label><input id="ex2-c" type="text" data-answer="significa"> "comida"?</p>
-      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
-      <div class="result" id="result-ex2"></div>
-    </section>
-  </main>
-  <script src="js/main.js"></script>
+        <div class="exercise" id="ex1">
+            <h3>1. Match the beginning of each question to its ending to form useful questions to use in the classroom.</h3>
+            <table class="matching-table">
+                <tr data-answer="repetir, por favor?">
+                    <td><strong>a.</strong> ¿Puedes</td>
+                    <td><input type="radio" name="q1a" value="se escribe 'hola'?"> se escribe "hola"?</td>
+                    <td><input type="radio" name="q1a" value="significa 'escribir'?"> significa "escribir"?</td>
+                    <td><input type="radio" name="q1a" value="repetir, por favor?"> repetir, por favor?</td>
+                    <td><input type="radio" name="q1a" value="'casa'">'casa'?</td>
+                    <td><input type="radio" name="q1a" value="dice friend?"> dice friend?</td>
+                </tr>
+                <tr data-answer="'casa'">
+                    <td><strong>b.</strong> ¿Qué quiere decir</td>
+                    <td><input type="radio" name="q1b" value="se escribe 'hola'?"></td>
+                    <td><input type="radio" name="q1b" value="significa 'escribir'?"></td>
+                    <td><input type="radio" name="q1b" value="repetir, por favor?"></td>
+                    <td><input type="radio" name="q1b" value="'casa'"></td>
+                    <td><input type="radio" name="q1b" value="dice friend?"></td>
+                </tr>
+                <tr data-answer="dice friend?">
+                    <td><strong>c.</strong> ¿Cómo se</td>
+                    <td><input type="radio" name="q1c" value="se escribe 'hola'?"></td>
+                    <td><input type="radio" name="q1c" value="significa 'escribir'?"></td>
+                    <td><input type="radio" name="q1c" value="repetir, por favor?"></td>
+                    <td><input type="radio" name="q1c" value="'casa'"></td>
+                    <td><input type="radio" name="q1c" value="dice friend?"></td>
+                </tr>
+                <tr data-answer="se escribe 'hola'?">
+                    <td><strong>d.</strong> ¿Cómo</td>
+                    <td><input type="radio" name="q1d" value="se escribe 'hola'?"></td>
+                    <td><input type="radio" name="q1d" value="significa 'escribir'?"></td>
+                    <td><input type="radio" name="q1d" value="repetir, por favor?"></td>
+                    <td><input type="radio" name="q1d" value="'casa'"></td>
+                    <td><input type="radio" name="q1d" value="dice friend?"></td>
+                </tr>
+                <tr data-answer="significa 'escribir'?">
+                    <td><strong>e.</strong> ¿Qué</td>
+                    <td><input type="radio" name="q1e" value="se escribe 'hola'?"></td>
+                    <td><input type="radio" name="q1e" value="significa 'escribir'?"></td>
+                    <td><input type="radio" name="q1e" value="repetir, por favor?"></td>
+                    <td><input type="radio" name="q1e" value="'casa'"></td>
+                    <td><input type="radio" name="q1e" value="dice friend?"></td>
+                </tr>
+            </table>
+            <button onclick="checkRadioExercise('ex1')">Corregir</button>
+            <div class="result" id="result-ex1"></div>
+        </div>
+
+        <div class="exercise" id="ex2">
+            <h3>2. These are some of the instructions... Translate them into English.</h3>
+            <p>a. Completa el texto con las formas adecuadas.<br><input type="text" class="line-input" data-answer="Complete the text with the correct forms."></p>
+            <p>b. Relaciona los elementos de las columnas.<br><input type="text" class="line-input" data-answer="Match the elements in the columns."></p>
+            <p>c. Escribe los verbos.<br><input type="text" class="line-input" data-answer="Write the verbs."></p>
+            <p>d. Marca la respuesta correcta.<br><input type="text" class="line-input" data-answer="Mark the correct answer."></p>
+            <p>e. Lee el texto y subraya las opciones correctas.<br><input type="text" class="line-input" data-answer="Read the text and underline the correct options."></p>
+            <p>f. Forma frases como la del ejemplo.<br><input type="text" class="line-input" data-answer="Form sentences like the example."></p>
+            <p>g. Clasifica estos verbos en la tabla.<br><input type="text" class="line-input" data-answer="Classify these verbs in the table."></p>
+            <p>h. Escucha y marca.<br><input type="text" class="line-input" data-answer="Listen and mark."></p>
+            <p>i. Traduce.<br><input type="text" class="line-input" data-answer="Translate."></p>
+            <button onclick="checkExercise('ex2')">Corregir</button>
+            <div class="result" id="result-ex2"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
