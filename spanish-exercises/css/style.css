@@ -199,6 +199,97 @@ nav a:hover {
   border-color: #2ecc71;
 }
 
+.line-input {
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    width: 100%;
+    padding: 2px;
+}
+.line-input:focus {
+    outline: none;
+}
+
+.matching-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+.matching-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.matching-table td:first-child {
+    width: 150px;
+    font-weight: bold;
+}
+.matching-table input[type="radio"] {
+    margin-right: 5px;
+}
+
+.word-bank {
+    background-color: #fef9e7;
+    border: 1px solid #f1c40f;
+    padding: 10px;
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.matching-grid-ex4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+.matching-grid-ex4 .match-item {
+    display: flex;
+    align-items: center;
+}
+
+.text-block {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.grid-inputs {
+    display: grid;
+    gap: 0.75em;
+}
+
+.grid-inputs.two-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-inputs input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    padding: 2px 4px;
+}
+
+.grid-inputs input[type="text"]:focus {
+    outline: none;
+}
+
+.explanation-box {
+    background-color: #fff9f0;
+    padding: 1.5em;
+    margin-top: 2em;
+    border: 1px solid #e67e22;
+    border-radius: 5px;
+}
+.example-text {
+    color: #e67e22;
+    margin-left: 1em;
+}
+
 .word-group.incorrect {
   background-color: #fbeeee;
   border-color: #e74c3c;

@@ -1,57 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página 7 - Ejercicios</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 7 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Página 7</h1>
-    <p>Ejercicios para reforzar el vocabulario del aula.</p>
-    <p><a href="index.html">⟵ Volver al índice</a></p>
-  </header>
-  <main>
-    <section class="exercise" id="ex1">
-      <h3>1. Relaciona las expresiones con su traducción.</h3>
-      <p>a. "¿Qué hora es?"
-        <select data-answer="What time is it?">
-          <option value="">Selecciona una opción</option>
-          <option value="Where are you from?">Where are you from?</option>
-          <option value="What time is it?">What time is it?</option>
-          <option value="Can you repeat that?">Can you repeat that?</option>
-        </select>
-      </p>
-      <p>b. "¿De dónde eres?"
-        <select data-answer="Where are you from?">
-          <option value="">Selecciona una opción</option>
-          <option value="Where are you from?">Where are you from?</option>
-          <option value="What time is it?">What time is it?</option>
-          <option value="Can you repeat that?">Can you repeat that?</option>
-        </select>
-      </p>
-      <p>c. "¿Puedes repetir eso?"
-        <select data-answer="Can you repeat that?">
-          <option value="">Selecciona una opción</option>
-          <option value="Where are you from?">Where are you from?</option>
-          <option value="What time is it?">What time is it?</option>
-          <option value="Can you repeat that?">Can you repeat that?</option>
-        </select>
-      </p>
-      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
-      <div class="result" id="result-ex1"></div>
-    </section>
+    <div class="container">
+        <div class="exercise" id="ex3">
+            <h3>3. Complete these questions.</h3>
+            <div class="word-bank">
+                <span>años tienes?</span>
+                <span>significa "mesa"?</span>
+                <span>te llamas?</span>
+                <span>se dedica Julia?</span>
+                <span>sois?</span>
+            </div>
+            <p><strong>a.</strong> ¿De dónde <input type="text" data-answer="sois" size="10">?</p>
+            <p><strong>b.</strong> ¿Cómo <input type="text" data-answer="te llamas" size="10">?</p>
+            <p><strong>c.</strong> ¿Qué <input type="text" data-answer="significa &quot;mesa&quot;" size="15">?</p>
+            <p><strong>d.</strong> ¿Cuántos <input type="text" data-answer="años tienes" size="12">?</p>
+            <p><strong>e.</strong> ¿A qué <input type="text" data-answer="se dedica Julia" size="15">?</p>
+            <button onclick="checkExercise('ex3')">Corregir</button>
+            <div class="result" id="result-ex3"></div>
+        </div>
 
-    <section class="exercise" id="ex2">
-      <h3>2. Completa las instrucciones del profesor.</h3>
-      <p>a. <label class="sr-only" for="ex2-a">Completa la instrucción a</label><input id="ex2-a" type="text" data-answer="abre"> el libro por favor.</p>
-      <p>b. <label class="sr-only" for="ex2-b">Completa la instrucción b</label><input id="ex2-b" type="text" data-answer="escucha"> la grabación.</p>
-      <p>c. <label class="sr-only" for="ex2-c">Completa la instrucción c</label><input id="ex2-c" type="text" data-answer="escribe"> las respuestas.</p>
-      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
-      <div class="result" id="result-ex2"></div>
-    </section>
-  </main>
-  <script src="js/main.js"></script>
+        <div class="exercise" id="ex4">
+            <h3>4. Match the following answers to the questions of exercise 3.</h3>
+            <div class="matching-grid-ex4">
+                <div class="match-item" data-answer="b">
+                    <input type="radio" name="q4_1" value="b"> <span>Mario, ¿y tú?</span>
+                </div>
+                <div class="match-item" data-answer="c">
+                    <input type="radio" name="q4_2" value="c"> <span>Table.</span>
+                </div>
+                <div class="match-item" data-answer="a">
+                    <input type="radio" name="q4_3" value="a"> <span>Yo soy ruso y Florian es alemán.</span>
+                </div>
+                 <div class="match-item" data-answer="d">
+                    <input type="radio" name="q4_4" value="d"> <span>Diecisiete.</span>
+                </div>
+                 <div class="match-item" data-answer="e">
+                    <input type="radio" name="q4_5" value="e"> <span>Es periodista. Trabaja en un periódico digital.</span>
+                </div>
+            </div>
+            <button onclick="checkRadioExercise('ex4')">Corregir</button>
+            <div class="result" id="result-ex4"></div>
+        </div>
+
+        <div class="exercise" id="ex5">
+            <h3>5. Gary is learning Spanish... Can you help him correct his mistakes? There are 6 mistakes.</h3>
+            <div class="text-block">
+                ¡Hola! Me llamo es Gary. Soy un periodista y estudio español en Liverpool. Soy de irlandés, pero vivo en Liverpool porque mi mujer es Inglaterra. Ella es llama Kate y es 36 años, como yo.
+            </div>
+            <p>Corrections:</p>
+            <div class="grid-inputs two-columns">
+                <span>1. <input type="text" data-answer="Me llamo" size="10"></span>
+                <span>2. <input type="text" data-answer="Irlanda" size="10"></span>
+                <span>3. <input type="text" data-answer="inglesa" size="10"></span>
+                <span>4. <input type="text" data-answer="se llama" size="10"></span>
+                <span>5. <input type="text" data-answer="tiene" size="10"></span>
+                <span>6. <input type="text" data-answer="tengo" size="10"></span>
+            </div>
+            <button onclick="checkExercise('ex5')">Corregir</button>
+            <div class="result" id="result-ex5"></div>
+        </div>
+
+        <div class="explanation-box">
+            <p>We use the verb <strong>llamarse</strong> when we want to say somebody's name. It's a reflexive verb and, therefore, always goes with a pronoun (<strong>me, te, se, nos, os, se</strong>) before the conjugated verb:</p>
+            <p class="example-text"><em><strong>Llamo</strong> Conor. &gt; <strong>Me llamo</strong> Conor.</em></p>
+            <p class="example-text"><em>Mi profesora <strong>llama</strong> Pilar. &gt; Mi profesora <strong>se llama</strong> Pilar.</em></p>
+            
+            <p>When you want to say where you are from, you have two options:</p>
+            <p class="example-text"><strong>› Ser + de +</strong> (name of the country): <em>Penélope Cruz <strong>es de España</strong></em>.</p>
+            <p class="example-text"><strong>› Ser +</strong> (nationality): <em>Penélope Cruz <strong>es española</strong></em>.</p>
+
+            <p>Remember that in Spanish, the first letter of a nationality is written in lowercase and not with a capital letter like in English:</p>
+            <p class="example-text"><em>Soy <strong>irlandés</strong>. &gt; Soy <strong>Irlandés</strong>.</em></p>
+
+            <p>To talk about your age in Spanish, we use the verb <strong>tener</strong> (to have) and not <strong>ser</strong> (to be) as we do in English:</p>
+            <p class="example-text"><em><strong>Soy</strong> 24 años. &gt; <strong>Tengo</strong> 24 años.</em></p>
+
+            <p>In Spanish you do not need an article (<strong>un/a</strong>) when you describe what your job is:</p>
+            <p class="example-text"><em><strong>Soy un</strong> medico. &gt; <strong>Soy</strong> médico.</em></p>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

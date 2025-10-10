@@ -56,7 +56,8 @@ function checkExercise(exerciseId) {
  */
 function checkRadioExercise(exerciseId) {
     const exerciseContainer = document.getElementById(exerciseId);
-    const questions = exerciseContainer ? exerciseContainer.querySelectorAll('.match-item[data-answer]') : [];
+    // Find containers with data-answer, whether they are table rows or divs
+    const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]') : [];
     const resultContainer = document.getElementById('result-' + exerciseId);
 
     if (!questions.length || !resultContainer) {
@@ -70,7 +71,8 @@ function checkRadioExercise(exerciseId) {
         question.classList.remove('correct', 'incorrect');
         const correctAnswer = question.getAttribute('data-answer');
         const selectedRadio = question.querySelector('input[type="radio"]:checked');
-
+        
+        // The logic is the same: check the value of the selected radio against the answer
         if (selectedRadio && selectedRadio.value === correctAnswer) {
             question.classList.add('correct');
             correctCount++;
