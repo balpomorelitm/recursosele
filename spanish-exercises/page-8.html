@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 8 - Ejercicios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Página 8</h1>
+    <p>Practica conversaciones básicas y respuestas cortas.</p>
+    <p><a href="index.html">⟵ Volver al índice</a></p>
+  </header>
+  <main>
+    <section class="exercise" id="ex1">
+      <h3>1. Completa el diálogo con la respuesta adecuada.</h3>
+      <p>- Hola, ¿cómo te llamas?<br>
+         - Me llamo <label class="sr-only" for="ex1-a">Nombre</label><input id="ex1-a" type="text" data-answer="ana|maría|juan">.</p>
+      <p>- ¿De dónde eres?<br>
+         - Soy de <label class="sr-only" for="ex1-b">Ciudad o país</label><input id="ex1-b" type="text" data-answer="madrid|méxico|bogotá">.</p>
+      <p>- Mucho gusto.<br>
+         - <label class="sr-only" for="ex1-c">Respuesta de cortesía</label><input id="ex1-c" type="text" data-answer="mucho gusto|encantado|encantada">.</p>
+      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
+      <div class="result" id="result-ex1"></div>
+    </section>
+
+    <section class="exercise" id="ex2">
+      <h3>2. Selecciona la opción correcta para completar la frase.</h3>
+      <p>a. Nosotros
+        <select data-answer="somos">
+          <option value="">Selecciona una opción</option>
+          <option value="somos">somos</option>
+          <option value="es">es</option>
+          <option value="soy">soy</option>
+        </select>
+        estudiantes de español.
+      </p>
+      <p>b. Ellos
+        <select data-answer="están">
+          <option value="">Selecciona una opción</option>
+          <option value="está">está</option>
+          <option value="están">están</option>
+          <option value="estamos">estamos</option>
+        </select>
+        en la biblioteca ahora mismo.
+      </p>
+      <p>c. Yo
+        <select data-answer="tengo">
+          <option value="">Selecciona una opción</option>
+          <option value="tienes">tienes</option>
+          <option value="tiene">tiene</option>
+          <option value="tengo">tengo</option>
+        </select>
+        dos hermanos.
+      </p>
+      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
+      <div class="result" id="result-ex2"></div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

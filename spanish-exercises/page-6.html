@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 6 - Ejercicios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Página 6</h1>
+    <p>Practica las estructuras comunicativas de la unidad.</p>
+    <p><a href="index.html">⟵ Volver al índice</a></p>
+  </header>
+  <main>
+    <section class="exercise" id="ex1">
+      <h3>1. Une el principio de cada pregunta con su final.</h3>
+      <p>a. ¿Puedes
+        <select data-answer="repetir, por favor?">
+          <option value="">Selecciona una opción</option>
+          <option value="repetir, por favor?">repetir, por favor?</option>
+          <option value="hacerlo otra vez?">hacerlo otra vez?</option>
+          <option value="ayudarme con esto?">ayudarme con esto?</option>
+        </select>
+      </p>
+      <p>b. ¿Qué quiere decir
+        <select data-answer="significa 'escribir'?"><option value="">Selecciona una opción</option>
+          <option value="significa 'escribir'?">significa 'escribir'?</option>
+          <option value="cómo se escribe?">cómo se escribe?</option>
+          <option value="lo puedes repetir?">lo puedes repetir?</option>
+        </select>
+      </p>
+      <p>c. ¿Cómo se dice
+        <select data-answer="en español?"><option value="">Selecciona una opción</option>
+          <option value="en español?">en español?</option>
+          <option value="significa 'escribir'?">significa 'escribir'?</option>
+          <option value="puedes ayudarme?">puedes ayudarme?</option>
+        </select>
+      </p>
+      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
+      <div class="result" id="result-ex1"></div>
+    </section>
+
+    <section class="exercise" id="ex2">
+      <h3>2. Completa las frases con la palabra correcta.</h3>
+      <p>a. ¿<label for="ex2-a" class="sr-only">Completa la frase a</label><input id="ex2-a" type="text" data-answer="puedes"> ayudarme?</p>
+      <p>b. ¿Puedes repetirlo más <label for="ex2-b" class="sr-only">Completa la palabra b</label><input id="ex2-b" type="text" data-answer="despacio|lento">?</p>
+      <p>c. ¿Qué <label for="ex2-c" class="sr-only">Completa la palabra c</label><input id="ex2-c" type="text" data-answer="significa"> "comida"?</p>
+      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
+      <div class="result" id="result-ex2"></div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
