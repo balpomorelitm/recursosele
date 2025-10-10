@@ -199,6 +199,80 @@ nav a:hover {
   border-color: #2ecc71;
 }
 
+.verb-ending-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+  margin: 1.5em 0;
+}
+
+.verb-ending-grid span {
+  display: flex;
+  align-items: baseline;
+}
+
+.verb-ending-grid input {
+  border: none;
+  border-bottom: 1px dotted #333;
+  margin-left: 2px;
+}
+
+.verb-ending-grid input:focus {
+  outline: none;
+  border-bottom: 1px solid #e67e22;
+}
+
+.ser-tener-box {
+  text-align: center;
+  border-left: none;
+  border-top: 3px solid #e67e22;
+  border-bottom: 3px solid #e67e22;
+  background-color: transparent;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 2em;
+}
+
+.conjugation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.conjugation-table th,
+.conjugation-table td {
+  border: 1px solid #e67e22;
+  padding: 8px;
+}
+
+.conjugation-table th {
+  background-color: #e67e22;
+  color: white;
+}
+
+.conjugation-table .highlight {
+  background-color: #fbeeeB;
+}
+
+.conjugation-table td:first-child {
+  background-color: #faded1;
+  font-style: italic;
+  color: #333;
+}
+
+.line-input-dialogue {
+  border: none;
+  border-bottom: 1px dotted #333;
+  background: transparent;
+  width: 100px;
+}
+
+.line-input-dialogue:focus {
+  outline: none;
+  border-bottom: 1px solid #e67e22;
+}
+
 .line-input {
     border: none;
     border-bottom: 1px solid #333;
