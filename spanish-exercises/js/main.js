@@ -99,3 +99,49 @@ function checkAllExercises() {
         }
     });
 }
+
+/**
+ * Checks exercises with checkboxes where the answer is on the parent row.
+ * A row is correct if the user checks the correct box and ONLY the correct box.
+ * @param {string} exerciseId The ID of the exercise container div.
+ */
+function checkCheckboxExercise(exerciseId) {
+    const exerciseContainer = document.getElementById(exerciseId);
+    const questions = exerciseContainer.querySelectorAll('tr[data-answer]');
+    const resultContainer = document.getElementById('result-' + exerciseId);
+
+    if (!questions.length || !resultContainer) {
+        console.error("Could not find questions or result container for", exerciseId);
+        return;
+    }
+
+    let correctCount = 0;
+
+    questions.forEach(questionRow => {
+        questionRow.classList.remove('correct', 'incorrect');
+        const correctAnswer = questionRow.getAttribute('data-answer');
+        const checkboxes = questionRow.querySelectorAll('input[type="checkbox"]');
+        
+        let checkedValue = null;
+        let checkedCount = 0;
+
+        checkboxes.forEach(box => {
+            if (box.checked) {
+                checkedValue = box.value;
+                checkedCount++;
+            }
+        });
+
+        // A row is correct if exactly one box is checked and its value is the correct answer.
+        if (checkedCount === 1 && checkedValue === correctAnswer) {
+            questionRow.classList.add('correct');
+            correctCount++;
+        } else {
+            questionRow.classList.add('incorrect');
+        }
+    });
+
+    const percentage = Math.round((correctCount / questions.length) * 100);
+    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
+    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
+}

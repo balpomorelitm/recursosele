@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página 9 - Ejercicios</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 9 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Página 9</h1>
-    <p>Actividades de repaso para evaluar tu progreso.</p>
-    <p><a href="index.html">⟵ Volver al índice</a></p>
-  </header>
-  <main>
-    <section class="exercise" id="ex1">
-      <h3>1. Escoge la opción correcta para cada afirmación.</h3>
-      <p>a. Nosotros <select data-answer="vamos">
-          <option value="">Selecciona una opción</option>
-          <option value="voy">voy</option>
-          <option value="vamos">vamos</option>
-          <option value="van">van</option>
-        </select> al cine los viernes.</p>
-      <p>b. Tú <select data-answer="puedes">
-          <option value="">Selecciona una opción</option>
-          <option value="podemos">podemos</option>
-          <option value="puedo">puedo</option>
-          <option value="puedes">puedes</option>
-        </select> venir mañana.</p>
-      <p>c. Ellas <select data-answer="leen">
-          <option value="">Selecciona una opción</option>
-          <option value="leo">leo</option>
-          <option value="lee">lee</option>
-          <option value="leen">leen</option>
-        </select> muchos libros.</p>
-      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
-      <div class="result" id="result-ex1"></div>
-    </section>
+    <div class="container">
+        <div class="exercise" id="ex8">
+            <h3>8. What verb goes with each word: ser or tener?</h3>
+            <div class="table-container-grid">
+                <table class="check-table">
+                    <thead><tr><th></th><th>SER</th><th>TENER</th></tr></thead>
+                    <tbody>
+                        <tr data-answer="tener"><td>italiano, de Milán</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>40 años</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="tener"><td>correo electrónico</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>periodista</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>español, de Granada</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                    </tbody>
+                </table>
+                <table class="check-table">
+                    <thead><tr><th></th><th>SER</th><th>TENER</th></tr></thead>
+                    <tbody>
+                        <tr data-answer="tener"><td>móvil</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>diseñador</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>francesa, de Burdeos</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="ser"><td>de Venezuela</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                        <tr data-answer="tener"><td>doble nacionalidad</td><td><input type="checkbox" value="ser"></td><td><input type="checkbox" value="tener"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <button onclick="checkCheckboxExercise('ex8')">Corregir</button>
+            <div class="result" id="result-ex8"></div>
+        </div>
 
-    <section class="exercise" id="ex2">
-      <h3>2. Escribe la forma correcta del verbo en presente.</h3>
-      <p>a. Yo <label class="sr-only" for="ex2-a">Verbo comer en primera persona</label><input id="ex2-a" type="text" data-answer="como"> muchas verduras.</p>
-      <p>b. Vosotros <label class="sr-only" for="ex2-b">Verbo vivir en segunda persona plural</label><input id="ex2-b" type="text" data-answer="vivís"> en España.</p>
-      <p>c. Ellos <label class="sr-only" for="ex2-c">Verbo estudiar en tercera persona plural</label><input id="ex2-c" type="text" data-answer="estudian"> para el examen.</p>
-      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
-      <div class="result" id="result-ex2"></div>
-    </section>
-  </main>
-  <script src="js/main.js"></script>
+        <div class="exercise" id="ex9">
+            <h3>9. Javier lives in Madrid and is throwing a party at his house. Fill in the dialogues with the correct forms of ser and tener.</h3>
+            <p><strong>a.</strong></p>
+            <p>• Arthi, ¿tú <input type="text" data-answer="eres" size="5"> de la India?<br>• Sí, <input type="text" data-answer="soy" size="5"> de Nueva Delhi.</p>
+            <p><strong>b.</strong></p>
+            <p>• ¿<input type="text" data-answer="Eres" size="5"> de Madrid, Laura?<br>• No, <input type="text" data-answer="soy" size="5"> de Valladolid, pero trabajo aquí, en Madrid.<br>• Ah... ¿Y a qué te dedicas?<br>• <input type="text" data-answer="Soy" size="5"> arquitecta. ¿Y tú?</p>
+            <p><strong>c.</strong></p>
+            <p>• Hola, ¿qué tal? Me llamo Markus.<br>• Hola, yo <input type="text" data-answer="soy" size="5"> Molly y él <input type="text" data-answer="es" size="5"> Mike.<br>• ¿De dónde <input type="text" data-answer="sois" size="5">?<br>• Estadounidenses. ¿Y tú?<br>• Yo, alemán.</p>
+            <p><strong>d.</strong></p>
+            <p>• ¿Cuál <input type="text" data-answer="es" size="5"> tu número de móvil?<br>• No <input type="text" data-answer="tengo" size="5"> móvil en España...<br>• ¿Y <input type="text" data-answer="tienes" size="5"> correo electrónico?</p>
+            <p><strong>e.</strong></p>
+            <p>• Hola, <input type="text" data-answer="somos" size="5"> Álvaro y Markus.<br>• Ah, hola. Yo me llamo Marta. Trabajo con Javier en el hospital.<br>• Ah, ¿<input type="text" data-answer="sois" size="5"> enfermera, como Javier?<br>• No, <input type="text" data-answer="somos" size="5"> médica.</p>
+            <button onclick="checkExercise('ex9')">Corregir</button>
+            <div class="result" id="result-ex9"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página 8 - Ejercicios</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 8 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Página 8</h1>
-    <p>Practica conversaciones básicas y respuestas cortas.</p>
-    <p><a href="index.html">⟵ Volver al índice</a></p>
-  </header>
-  <main>
-    <section class="exercise" id="ex1">
-      <h3>1. Completa el diálogo con la respuesta adecuada.</h3>
-      <p>- Hola, ¿cómo te llamas?<br>
-         - Me llamo <label class="sr-only" for="ex1-a">Nombre</label><input id="ex1-a" type="text" data-answer="ana|maría|juan">.</p>
-      <p>- ¿De dónde eres?<br>
-         - Soy de <label class="sr-only" for="ex1-b">Ciudad o país</label><input id="ex1-b" type="text" data-answer="madrid|méxico|bogotá">.</p>
-      <p>- Mucho gusto.<br>
-         - <label class="sr-only" for="ex1-c">Respuesta de cortesía</label><input id="ex1-c" type="text" data-answer="mucho gusto|encantado|encantada">.</p>
-      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
-      <div class="result" id="result-ex1"></div>
-    </section>
+    <div class="container">
+        <h1>VERBOS EN ESPAÑOL</h1>
 
-    <section class="exercise" id="ex2">
-      <h3>2. Selecciona la opción correcta para completar la frase.</h3>
-      <p>a. Nosotros
-        <select data-answer="somos">
-          <option value="">Selecciona una opción</option>
-          <option value="somos">somos</option>
-          <option value="es">es</option>
-          <option value="soy">soy</option>
-        </select>
-        estudiantes de español.
-      </p>
-      <p>b. Ellos
-        <select data-answer="están">
-          <option value="">Selecciona una opción</option>
-          <option value="está">está</option>
-          <option value="están">están</option>
-          <option value="estamos">estamos</option>
-        </select>
-        en la biblioteca ahora mismo.
-      </p>
-      <p>c. Yo
-        <select data-answer="tengo">
-          <option value="">Selecciona una opción</option>
-          <option value="tienes">tienes</option>
-          <option value="tiene">tiene</option>
-          <option value="tengo">tengo</option>
-        </select>
-        dos hermanos.
-      </p>
-      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
-      <div class="result" id="result-ex2"></div>
-    </section>
-  </main>
-  <script src="js/main.js"></script>
+        <div class="exercise" id="ex6">
+            <h3>6. Fill in the verbs with the correct ending for the infinitive forms: -ar, -er or -ir.</h3>
+            <div class="grid-inputs">
+                <span>trabaj<input type="text" data-answer="ar" size="3"></span>
+                <span>cant<input type="text" data-answer="ar" size="3"></span>
+                <span>cocin<input type="text" data-answer="ar" size="3"></span>
+                <span>viv<input type="text" data-answer="ir" size="3"></span>
+                <span>le<input type="text" data-answer="er" size="3"></span>
+                <span>s<input type="text" data-answer="er" size="3"></span>
+                <span>estudi<input type="text" data-answer="ar" size="3"></span>
+                <span>esqui<input type="text" data-answer="ar" size="3"></span>
+                <span>escrib<input type="text" data-answer="ir" size="3"></span>
+                <span>viaj<input type="text" data-answer="ar" size="3"></span>
+                <span>bail<input type="text" data-answer="ar" size="3"></span>
+                <span>ten<input type="text" data-answer="er" size="3"></span>
+            </div>
+            <button onclick="checkExercise('ex6')">Corregir</button>
+            <div class="result" id="result-ex6"></div>
+        </div>
+
+        <div class="exercise" id="ex7">
+            <h3>7. Write who each verb is referring to.</h3>
+            <div class="grid-inputs two-columns">
+                <span>tienen: <input type="text" data-answer="tener" size="8"></span>
+                <span>tengo: <input type="text" data-answer="tener" size="8"></span>
+                <span>somos: <input type="text" data-answer="ser" size="8"></span>
+                <span>soy: <input type="text" data-answer="ser" size="8"></span>
+                <span>tienes: <input type="text" data-answer="tener" size="8"></span>
+                <span>es: <input type="text" data-answer="ser" size="8"></span>
+                <span>eres: <input type="text" data-answer="ser" size="8"></span>
+                <span>tiene: <input type="text" data-answer="tener" size="8"></span>
+                <span>tenemos: <input type="text" data-answer="tener" size="8"></span>
+                <span>son: <input type="text" data-answer="ser" size="8"></span>
+                <span>sois: <input type="text" data-answer="ser" size="8"></span>
+                <span>tenéis: <input type="text" data-answer="tener" size="8"></span>
+            </div>
+            <button onclick="checkExercise('ex7')">Corregir</button>
+            <div class="result" id="result-ex7"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
