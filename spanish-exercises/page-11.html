@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 11 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GENDER: PROFESSIONS</h1>
+
+        <div class="exercise" id="ex11">
+            <h3>11. Fill in this table.</h3>
+            <table class="fill-table">
+                <thead><tr><th>MASCULINO</th><th>FEMENINO</th></tr></thead>
+                <tbody>
+                    <tr><td>enfermero</td><td><input type="text" data-answer="enfermera"></td></tr>
+                    <tr><td><input type="text" data-answer="dentista"></td><td>dentista</td></tr>
+                    <tr><td>profesor</td><td><input type="text" data-answer="profesora"></td></tr>
+                    <tr><td><input type="text" data-answer="arquitecto"></td><td>arquitecta</td></tr>
+                    <tr><td>estudiante</td><td><input type="text" data-answer="estudiante"></td></tr>
+                    <tr><td><input type="text" data-answer="actor"></td><td>actriz</td></tr>
+                    <tr><td>empresario</td><td><input type="text" data-answer="empresaria"></td></tr>
+                    <tr><td><input type="text" data-answer="camarero"></td><td>camarera</td></tr>
+                    <tr><td>futbolista</td><td><input type="text" data-answer="futbolista"></td></tr>
+                </tbody>
+            </table>
+            <button onclick="checkExercise('ex11')">Corregir</button>
+            <div class="result" id="result-ex11"></div>
+        </div>
+
+        <div class="exercise" id="ex12">
+            <h3>12. Fill in the following sentences to complete the rules about how gender in nationalities and professions work in Spanish.</h3>
+            <ul>
+                <li>If the masculine ends in <strong>-o</strong> (for example <input type="text" data-answer="italiano" size="10">), the feminine ends in <input type="text" data-answer="-a" size="3"> (for example <input type="text" data-answer="italiana" size="10">).</li>
+                <li>If the masculine ends in a vowel other than <strong>-o</strong> (for example <input type="text" data-answer="estadounidense" size="15"> or <input type="text" data-answer="marroquí" size="10">), the feminine ends in <input type="text" data-answer="the same" size="10">.</li>
+                <li>If the masculine ends in a consonant (for example <input type="text" data-answer="español" size="10">), we need to add <input type="text" data-answer="-a" size="3"> for the feminine.</li>
+                <li>Some are irregular, like <strong>actor</strong>, whose feminine is <input type="text" data-answer="actriz" size="10">.</li>
+            </ul>
+            <button onclick="checkExercise('ex12')">Corregir</button>
+            <div class="result" id="result-ex12"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
