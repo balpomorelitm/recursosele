@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 9 - Ejercicios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Página 9</h1>
+    <p>Actividades de repaso para evaluar tu progreso.</p>
+    <p><a href="index.html">⟵ Volver al índice</a></p>
+  </header>
+  <main>
+    <section class="exercise" id="ex1">
+      <h3>1. Escoge la opción correcta para cada afirmación.</h3>
+      <p>a. Nosotros <select data-answer="vamos">
+          <option value="">Selecciona una opción</option>
+          <option value="voy">voy</option>
+          <option value="vamos">vamos</option>
+          <option value="van">van</option>
+        </select> al cine los viernes.</p>
+      <p>b. Tú <select data-answer="puedes">
+          <option value="">Selecciona una opción</option>
+          <option value="podemos">podemos</option>
+          <option value="puedo">puedo</option>
+          <option value="puedes">puedes</option>
+        </select> venir mañana.</p>
+      <p>c. Ellas <select data-answer="leen">
+          <option value="">Selecciona una opción</option>
+          <option value="leo">leo</option>
+          <option value="lee">lee</option>
+          <option value="leen">leen</option>
+        </select> muchos libros.</p>
+      <button type="button" onclick="checkExercise('ex1')">Corregir</button>
+      <div class="result" id="result-ex1"></div>
+    </section>
+
+    <section class="exercise" id="ex2">
+      <h3>2. Escribe la forma correcta del verbo en presente.</h3>
+      <p>a. Yo <label class="sr-only" for="ex2-a">Verbo comer en primera persona</label><input id="ex2-a" type="text" data-answer="como"> muchas verduras.</p>
+      <p>b. Vosotros <label class="sr-only" for="ex2-b">Verbo vivir en segunda persona plural</label><input id="ex2-b" type="text" data-answer="vivís"> en España.</p>
+      <p>c. Ellos <label class="sr-only" for="ex2-c">Verbo estudiar en tercera persona plural</label><input id="ex2-c" type="text" data-answer="estudian"> para el examen.</p>
+      <button type="button" onclick="checkExercise('ex2')">Corregir</button>
+      <div class="result" id="result-ex2"></div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
