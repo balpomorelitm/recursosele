@@ -14,6 +14,13 @@
     <div class="container">
         <header class="header">
             <div class="header-actions">
+                <div class="theme-toggle">
+                    <button class="theme-btn" type="button" aria-pressed="false">
+                        <span class="theme-btn-label sr-only">Modo noche</span>
+                        <span class="sun-icon" aria-hidden="true">☀️</span>
+                        <span class="moon-icon" aria-hidden="true">🌙</span>
+                    </button>
+                </div>
                 <div class="language-toggle">
                     <button class="lang-btn" type="button" aria-label="Cambiar a inglés">English</button>
                 </div>
@@ -62,7 +69,11 @@
                     coursesLabel: 'Cursos:',
                     footer: 'Creado con ❤️ para mis estudiantes de español.',
                     languageButton: 'English',
-                    languageButtonAria: 'Cambiar a inglés'
+                    languageButtonAria: 'Cambiar a inglés',
+                    themeButtonNight: 'Modo noche',
+                    themeButtonDay: 'Modo día',
+                    themeButtonNightAria: 'Activar modo noche',
+                    themeButtonDayAria: 'Activar modo día'
                 },
                 en: {
                     mainTitle: 'My ELE Toolkit',
@@ -80,7 +91,11 @@
                     coursesLabel: 'Courses:',
                     footer: 'Created with ❤️ for my Spanish students.',
                     languageButton: 'Español',
-                    languageButtonAria: 'Switch to Spanish'
+                    languageButtonAria: 'Switch to Spanish',
+                    themeButtonNight: 'Night mode',
+                    themeButtonDay: 'Day mode',
+                    themeButtonNightAria: 'Enable night mode',
+                    themeButtonDayAria: 'Enable day mode'
                 }
             };
 
@@ -89,7 +104,8 @@
                 filter: 'all',
                 tools: [],
                 isLoading: true,
-                error: false
+                error: false,
+                theme: 'light'
             };
 
             const CATEGORY_MAP = {
@@ -101,10 +117,14 @@
 
             const titleEl = document.querySelector('.main-title');
             const langToggle = document.querySelector('.lang-btn');
+            const themeToggle = document.querySelector('.theme-btn');
+            const themeToggleLabel = themeToggle ? themeToggle.querySelector('.theme-btn-label') : null;
             const filterButtons = document.querySelectorAll('.filter-btn');
             const toolsGrid = document.querySelector('.tools-grid');
             const emptyState = document.querySelector('.empty-state');
             const i18nElements = document.querySelectorAll('[data-i18n-key]');
+
+            const THEME_STORAGE_KEY = 'preferred-theme';
 
             const renderTitle = (text) => {
                 if (!titleEl) return;
@@ -133,6 +153,38 @@
                         titleEl.appendChild(spaceSpan);
                     }
                 });
+            };
+
+            const updateThemeToggleCopy = () => {
+                if (!themeToggle) {
+                    return;
+                }
+
+                const copy = translations[state.lang];
+                if (!copy) {
+                    return;
+                }
+
+                const isDark = state.theme === 'dark';
+                const labelText = isDark ? copy.themeButtonDay : copy.themeButtonNight;
+                const ariaLabel = isDark ? copy.themeButtonDayAria : copy.themeButtonNightAria;
+
+                themeToggle.setAttribute('aria-label', ariaLabel);
+                themeToggle.setAttribute('aria-pressed', String(isDark));
+
+                if (themeToggleLabel) {
+                    themeToggleLabel.textContent = labelText;
+                }
+            };
+
+            const applyTheme = () => {
+                if (state.theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+
+                updateThemeToggleCopy();
             };
 
             const formatDate = (isoDate) => {
@@ -318,6 +370,8 @@
 
                 renderTitle(copy.mainTitle);
 
+                updateThemeToggleCopy();
+
                 i18nElements.forEach((el) => {
                     const key = el.dataset.i18nKey;
                     if (!key || !(key in copy)) {
@@ -365,6 +419,22 @@
                 });
             }
 
+            const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+            const prefersDarkScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = storedTheme === 'dark' || storedTheme === 'light'
+                ? storedTheme
+                : (prefersDarkScheme ? 'dark' : 'light');
+
+            state.theme = initialTheme;
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+                    localStorage.setItem(THEME_STORAGE_KEY, state.theme);
+                    applyTheme();
+                });
+            }
+
             const fetchTools = async () => {
                 try {
                     state.isLoading = true;
@@ -391,6 +461,7 @@
                 applyFilter();
             };
 
+            applyTheme();
             applyTranslations();
             fetchTools();
         });
