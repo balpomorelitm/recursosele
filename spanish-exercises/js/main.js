@@ -1,53 +1,75 @@
 /**
+ * Normalises user answers for comparison.
+ * @param {string} value
+ * @returns {string}
+ */
+function normaliseAnswer(value) {
+  return value.trim().toLowerCase();
+}
+
+/**
+ * Returns a list of valid answers from the data-answer attribute.
+ * Supports multiple solutions separated by the pipe character.
+ * @param {string} dataAnswer
+ * @returns {string[]}
+ */
+function parseValidAnswers(dataAnswer) {
+  return dataAnswer
+    .split('|')
+    .map(part => normaliseAnswer(part))
+    .filter(Boolean);
+}
+
+/**
  * Checks exercises with text inputs and select dropdowns.
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function checkExercise(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    if (!exerciseContainer) {
-        console.warn(`Exercise container with id "${exerciseId}" not found.`);
-        return;
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  const wordGroups = exerciseContainer.querySelectorAll('.word-group');
+  if (wordGroups.length) {
+    checkSelectedWords(exerciseId);
+    return;
+  }
+
+  const inputs = exerciseContainer.querySelectorAll('input[type="text"], select');
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+
+  if (!inputs.length || !resultContainer) {
+    console.error('Could not find inputs or result container for', exerciseId);
+    return;
+  }
+
+  let correctCount = 0;
+
+  inputs.forEach(input => {
+    input.classList.remove('correct', 'incorrect');
+    const dataAnswer = input.getAttribute('data-answer');
+
+    if (!dataAnswer) {
+      input.classList.add('incorrect');
+      return;
     }
 
-    const wordGroups = exerciseContainer.querySelectorAll('.word-group');
-    if (wordGroups.length) {
-        checkSelectedWords(exerciseId);
-        return;
+    const userAnswer = normaliseAnswer(input.value);
+    const validAnswers = parseValidAnswers(dataAnswer);
+
+    if (validAnswers.includes(userAnswer)) {
+      input.classList.add('correct');
+      correctCount++;
+    } else {
+      input.classList.add('incorrect');
     }
+  });
 
-    const inputs = exerciseContainer.querySelectorAll('input[type="text"], select');
-    const resultContainer = document.getElementById('result-' + exerciseId);
-
-    if (!inputs.length || !resultContainer) {
-        console.error('Could not find inputs or result container for', exerciseId);
-        return;
-    }
-
-    let correctCount = 0;
-
-    inputs.forEach(input => {
-        input.classList.remove('correct', 'incorrect');
-        const dataAnswer = input.getAttribute('data-answer');
-
-        if (!dataAnswer) {
-            input.classList.add('incorrect');
-            return;
-        }
-
-        const userAnswer = input.value.trim().toLowerCase();
-        const correctAnswer = dataAnswer.trim().toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-            input.classList.add('correct');
-            correctCount++;
-        } else {
-            input.classList.add('incorrect');
-        }
-    });
-
-    const percentage = Math.round((correctCount / inputs.length) * 100);
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${inputs.length})`;
-    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
+  const percentage = Math.round((correctCount / inputs.length) * 100);
+  resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${inputs.length})`;
+  resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
 }
 
 /**
@@ -55,35 +77,33 @@ function checkExercise(exerciseId) {
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function checkRadioExercise(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    // Find containers with data-answer, whether they are table rows or divs
-    const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]') : [];
-    const resultContainer = document.getElementById('result-' + exerciseId);
+  const exerciseContainer = document.getElementById(exerciseId);
+  const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]') : [];
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
 
-    if (!questions.length || !resultContainer) {
-        console.error('Could not find questions or result container for', exerciseId);
-        return;
+  if (!questions.length || !resultContainer) {
+    console.error('Could not find questions or result container for', exerciseId);
+    return;
+  }
+
+  let correctCount = 0;
+
+  questions.forEach(question => {
+    question.classList.remove('correct', 'incorrect');
+    const correctAnswer = question.getAttribute('data-answer');
+    const selectedRadio = question.querySelector('input[type="radio"]:checked');
+
+    if (selectedRadio && selectedRadio.value === correctAnswer) {
+      question.classList.add('correct');
+      correctCount++;
+    } else {
+      question.classList.add('incorrect');
     }
+  });
 
-    let correctCount = 0;
-
-    questions.forEach(question => {
-        question.classList.remove('correct', 'incorrect');
-        const correctAnswer = question.getAttribute('data-answer');
-        const selectedRadio = question.querySelector('input[type="radio"]:checked');
-        
-        // The logic is the same: check the value of the selected radio against the answer
-        if (selectedRadio && selectedRadio.value === correctAnswer) {
-            question.classList.add('correct');
-            correctCount++;
-        } else {
-            question.classList.add('incorrect');
-        }
-    });
-
-    const percentage = Math.round((correctCount / questions.length) * 100);
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
-    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
+  const percentage = Math.round((correctCount / questions.length) * 100);
+  resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
+  resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
 }
 
 /**
@@ -92,43 +112,43 @@ function checkRadioExercise(exerciseId) {
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function checkCheckboxExercise(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer]') : [];
-    const resultContainer = document.getElementById('result-' + exerciseId);
+  const exerciseContainer = document.getElementById(exerciseId);
+  const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer]') : [];
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
 
-    if (!questions.length || !resultContainer) {
-        console.error('Could not find questions or result container for', exerciseId);
-        return;
-    }
+  if (!questions.length || !resultContainer) {
+    console.error('Could not find questions or result container for', exerciseId);
+    return;
+  }
 
-    let correctCount = 0;
+  let correctCount = 0;
 
-    questions.forEach(questionRow => {
-        questionRow.classList.remove('correct', 'incorrect');
-        const correctAnswer = questionRow.getAttribute('data-answer');
-        const checkboxes = questionRow.querySelectorAll('input[type="checkbox"]');
+  questions.forEach(questionRow => {
+    questionRow.classList.remove('correct', 'incorrect');
+    const correctAnswer = questionRow.getAttribute('data-answer');
+    const checkboxes = questionRow.querySelectorAll('input[type="checkbox"]');
 
-        let checkedValue = null;
-        let checkedCount = 0;
+    let checkedValue = null;
+    let checkedCount = 0;
 
-        checkboxes.forEach(box => {
-            if (box.checked) {
-                checkedValue = box.value;
-                checkedCount++;
-            }
-        });
-
-        if (checkedCount === 1 && checkedValue === correctAnswer) {
-            questionRow.classList.add('correct');
-            correctCount++;
-        } else {
-            questionRow.classList.add('incorrect');
-        }
+    checkboxes.forEach(box => {
+      if (box.checked) {
+        checkedValue = box.value;
+        checkedCount++;
+      }
     });
 
-    const percentage = Math.round((correctCount / questions.length) * 100);
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
-    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
+    if (checkedCount === 1 && checkedValue === correctAnswer) {
+      questionRow.classList.add('correct');
+      correctCount++;
+    } else {
+      questionRow.classList.add('incorrect');
+    }
+  });
+
+  const percentage = Math.round((correctCount / questions.length) * 100);
+  resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
+  resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
 }
 
 /**
@@ -137,167 +157,240 @@ function checkCheckboxExercise(exerciseId) {
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function checkSelectedWords(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    if (!exerciseContainer) {
-        console.warn(`Exercise container with id "${exerciseId}" not found.`);
-        return;
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  const wordGroups = exerciseContainer.querySelectorAll('.word-group');
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+
+  if (!wordGroups.length || !resultContainer) {
+    console.error('Could not find word groups or result container for', exerciseId);
+    return;
+  }
+
+  let correctSelections = 0;
+  let expectedSelections = 0;
+  let incorrectSelections = 0;
+
+  wordGroups.forEach(group => {
+    group.classList.remove('correct', 'incorrect');
+    const checkbox = group.querySelector('input[type="checkbox"]');
+    if (!checkbox) {
+      return;
     }
 
-    const wordGroups = exerciseContainer.querySelectorAll('.word-group');
-    const resultContainer = document.getElementById('result-' + exerciseId);
+    const shouldBeChecked = checkbox.hasAttribute('data-answer');
+    const isChecked = checkbox.checked;
 
-    if (!wordGroups.length || !resultContainer) {
-        console.error('Could not find word groups or result container for', exerciseId);
-        return;
+    if (shouldBeChecked) {
+      expectedSelections++;
     }
 
-    let correctSelections = 0;
-    let totalGroups = 0;
-
-    wordGroups.forEach(group => {
-        const checkboxesInGroup = group.querySelectorAll('input[type="checkbox"]');
-        let hasDataAnswer = false;
-        checkboxesInGroup.forEach(cb => {
-            if (cb.hasAttribute('data-answer')) {
-                hasDataAnswer = true;
-            }
-        });
-        if (hasDataAnswer) {
-            totalGroups++;
-        }
-    });
-
-    wordGroups.forEach(group => {
-        group.classList.remove('correct', 'incorrect');
-        const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-        let groupIsCorrect = true;
-
-        checkboxes.forEach(checkbox => {
-            const isCorrectOption = checkbox.hasAttribute('data-answer');
-
-            if (checkbox.checked && !isCorrectOption) {
-                groupIsCorrect = false;
-            } else if (!checkbox.checked && isCorrectOption) {
-                groupIsCorrect = false;
-            }
-        });
-
-        if (groupIsCorrect) {
-            group.classList.add('correct');
-            group.classList.remove('incorrect');
-            correctSelections++;
-        } else {
-            group.classList.add('incorrect');
-            group.classList.remove('correct');
-        }
-    });
-
-    const percentage = Math.round((correctSelections / totalGroups) * 100);
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctSelections} de ${totalGroups})`;
-    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
-}
-
-function checkSelectedWords(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    if (!exerciseContainer) {
-        console.warn(`Exercise container with id "${exerciseId}" not found.`);
-        return;
+    if (shouldBeChecked && isChecked) {
+      group.classList.add('correct');
+      correctSelections++;
+    } else if (shouldBeChecked && !isChecked) {
+      group.classList.add('incorrect');
+      incorrectSelections++;
+    } else if (!shouldBeChecked && isChecked) {
+      group.classList.add('incorrect');
+      incorrectSelections++;
     }
+  });
 
-    const wordGroups = exerciseContainer.querySelectorAll('.word-group');
-    const resultContainer = document.getElementById(`result-${exerciseId}`);
-
-    if (!resultContainer) {
-        console.warn(`Result container with id "result-${exerciseId}" not found.`);
-        return;
-    }
-
-    let correctSelections = 0;
-    let expectedSelections = 0;
-    let incorrectSelections = 0;
-
-    wordGroups.forEach(group => {
-        group.classList.remove('correct', 'incorrect');
-        const checkbox = group.querySelector('input[type="checkbox"]');
-        if (!checkbox) {
-            return;
-        }
-
-        const shouldBeChecked = checkbox.hasAttribute('data-answer');
-        const isChecked = checkbox.checked;
-
-        if (shouldBeChecked) {
-            expectedSelections++;
-        }
-
-        if (shouldBeChecked && isChecked) {
-            group.classList.add('correct');
-            correctSelections++;
-        } else if (shouldBeChecked && !isChecked) {
-            group.classList.add('incorrect');
-            incorrectSelections++;
-        } else if (!shouldBeChecked && isChecked) {
-            group.classList.add('incorrect');
-            incorrectSelections++;
-        }
-    });
-
-    const totalChecks = expectedSelections + incorrectSelections;
-    const percentage = totalChecks > 0 ? Math.round((correctSelections / totalChecks) * 100) : 0;
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctSelections} de ${totalChecks})`;
-}
-
-function checkAllExercises() {
-    const exerciseContainers = document.querySelectorAll('.exercise');
-    exerciseContainers.forEach(container => {
-        if (container.id) {
-            checkExercise(container.id);
-        }
-    });
+  const totalChecks = expectedSelections + incorrectSelections;
+  const percentage = totalChecks > 0 ? Math.round((correctSelections / totalChecks) * 100) : 0;
+  resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctSelections} de ${totalChecks})`;
+  resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
 }
 
 /**
- * Checks exercises with checkboxes where the answer is on the parent row.
- * A row is correct if the user checks the correct box and ONLY the correct box.
- * @param {string} exerciseId The ID of the exercise container div.
+ * Runs through all exercises and checks them.
  */
-function checkCheckboxExercise(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    const questions = exerciseContainer.querySelectorAll('tr[data-answer]');
-    const resultContainer = document.getElementById('result-' + exerciseId);
-
-    if (!questions.length || !resultContainer) {
-        console.error("Could not find questions or result container for", exerciseId);
-        return;
+function checkAllExercises() {
+  const exerciseContainers = document.querySelectorAll('.exercise');
+  exerciseContainers.forEach(container => {
+    if (container.id) {
+      checkExercise(container.id);
     }
+  });
+}
 
-    let correctCount = 0;
+/**
+ * Sets up the Unidad 1 card navigation if present on the page.
+ */
+function initUnitNavigation() {
+  const track = document.querySelector('.exercise-track');
+  const cards = track ? Array.from(track.querySelectorAll('.exercise-card')) : [];
+  if (!track || !cards.length) {
+    return;
+  }
 
-    questions.forEach(questionRow => {
-        questionRow.classList.remove('correct', 'incorrect');
-        const correctAnswer = questionRow.getAttribute('data-answer');
-        const checkboxes = questionRow.querySelectorAll('input[type="checkbox"]');
-        
-        let checkedValue = null;
-        let checkedCount = 0;
+  const carousel = document.querySelector('.exercise-carousel');
+  const prevButton = document.querySelector('.carousel-control.prev');
+  const nextButton = document.querySelector('.carousel-control.next');
+  const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
+  const indexToggle = document.querySelector('.index-toggle');
+  const indexPanel = document.getElementById('exercise-index');
+  const indexClose = document.querySelector('.index-close');
+  const indexButtons = indexPanel ? Array.from(indexPanel.querySelectorAll('button[data-target]')) : [];
 
-        checkboxes.forEach(box => {
-            if (box.checked) {
-                checkedValue = box.value;
-                checkedCount++;
-            }
-        });
+  let currentIndex = 0;
 
-        // A row is correct if exactly one box is checked and its value is the correct answer.
-        if (checkedCount === 1 && checkedValue === correctAnswer) {
-            questionRow.classList.add('correct');
-            correctCount++;
-        } else {
-            questionRow.classList.add('incorrect');
-        }
+  const focusActiveTab = () => {
+    const activeTab = tabButtons[currentIndex];
+    if (activeTab) {
+      activeTab.focus({ preventScroll: true });
+    }
+  };
+
+  const toggleIndexPanel = (show) => {
+    if (!indexPanel || !indexToggle) {
+      return;
+    }
+    const shouldShow = typeof show === 'boolean' ? show : indexPanel.getAttribute('aria-hidden') === 'true';
+    indexPanel.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+    indexToggle.setAttribute('aria-expanded', shouldShow ? 'true' : 'false');
+    indexPanel.classList.toggle('is-open', shouldShow);
+    if (!shouldShow && indexToggle) {
+      indexToggle.focus({ preventScroll: true });
+    }
+  };
+
+  const closeIndexPanel = () => toggleIndexPanel(false);
+
+  const updateControls = () => {
+    const activeExercise = cards[currentIndex];
+    cards.forEach((card, idx) => {
+      card.classList.toggle('active', idx === currentIndex);
     });
 
-    const percentage = Math.round((correctCount / questions.length) * 100);
-    resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${questions.length})`;
-    resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
+    if (carousel && activeExercise) {
+      carousel.setAttribute('data-active', activeExercise.dataset.exercise || '');
+    }
+
+    tabButtons.forEach((button, idx) => {
+      const isActive = idx === currentIndex;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      button.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    indexButtons.forEach(button => {
+      const target = button.getAttribute('data-target');
+      const isActive = activeExercise && target === activeExercise.dataset.exercise;
+      button.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    if (prevButton) {
+      prevButton.disabled = currentIndex === 0;
+    }
+    if (nextButton) {
+      nextButton.disabled = currentIndex === cards.length - 1;
+    }
+  };
+
+  const showExercise = (index) => {
+    if (index < 0 || index >= cards.length) {
+      return;
+    }
+    currentIndex = index;
+    updateControls();
+  };
+
+  const showExerciseByNumber = (exerciseNumber) => {
+    const targetIndex = cards.findIndex(card => card.dataset.exercise === exerciseNumber);
+    if (targetIndex !== -1) {
+      showExercise(targetIndex);
+    }
+  };
+
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      showExercise(currentIndex - 1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      showExercise(currentIndex + 1);
+    });
+  }
+
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      showExercise(index);
+    });
+  });
+
+  indexButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+      showExerciseByNumber(target);
+      closeIndexPanel();
+      focusActiveTab();
+    });
+  });
+
+  if (indexToggle) {
+    indexToggle.addEventListener('click', () => {
+      const isHidden = indexPanel && indexPanel.getAttribute('aria-hidden') === 'true';
+      toggleIndexPanel(isHidden);
+      if (isHidden && indexPanel) {
+        indexPanel.querySelector('button[data-target]')?.focus();
+      }
+    });
+  }
+
+  if (indexClose) {
+    indexClose.addEventListener('click', closeIndexPanel);
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && indexPanel && indexPanel.classList.contains('is-open')) {
+      closeIndexPanel();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return;
+    }
+
+    const target = event.target;
+    const tagName = target && target.tagName ? target.tagName.toLowerCase() : '';
+    const isFormField = tagName === 'input' || tagName === 'textarea' || tagName === 'select' || (target && target.isContentEditable);
+
+    if (isFormField || (indexPanel && indexPanel.classList.contains('is-open'))) {
+      return;
+    }
+
+    if (event.key === 'ArrowRight') {
+      showExercise(Math.min(cards.length - 1, currentIndex + 1));
+      event.preventDefault();
+    } else if (event.key === 'ArrowLeft') {
+      showExercise(Math.max(0, currentIndex - 1));
+      event.preventDefault();
+    }
+  });
+
+  // Initialise the first exercise as active.
+  updateControls();
+  showExercise(0);
 }
+
+// Initialise behaviours once the DOM is ready.
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('js-enabled');
+  initUnitNavigation();
+});
+
+// Export functions for inline event handlers.
+window.checkExercise = checkExercise;
+window.checkRadioExercise = checkRadioExercise;
+window.checkCheckboxExercise = checkCheckboxExercise;
+window.checkSelectedWords = checkSelectedWords;
+window.checkAllExercises = checkAllExercises;

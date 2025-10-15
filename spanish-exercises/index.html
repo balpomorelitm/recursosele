@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicios de Español</title>
+  <title>Ejercicios de Español · Unidades</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Ejercicios de Español</h1>
-    <p>Selecciona una página para practicar los ejercicios interactivos.</p>
+  <header class="landing-header">
+    <div class="landing-header__content">
+      <h1>Ejercicios de Español</h1>
+      <p>Explora las unidades disponibles y practica con actividades interactivas centradas en vocabulario, gramática y pronunciación.</p>
+    </div>
   </header>
-  <main>
-    <nav>
-      <ul>
-        <li><a href="page-6.html">Página 6</a></li>
-        <li><a href="page-7.html">Página 7</a></li>
-        <li><a href="page-8.html">Página 8</a></li>
-        <li><a href="page-9.html">Página 9</a></li>
-        <li><a href="page-10.html">Página 10</a></li>
-        <li><a href="page-11.html">Página 11</a></li>
-        <li><a href="page-12.html">Página 12</a></li>
-        <li><a href="page-13.html">Página 13</a></li>
-        <li><a href="page-14.html">Página 14</a></li>
-        <li><a href="page-15.html">Página 15</a></li>
-        <li><a href="page-16.html">Página 16</a></li>
 
+  <main class="landing-main">
+    <section class="unit-grid" aria-label="Listado de unidades disponibles">
+      <article class="unit-card">
+        <p class="unit-card__tag">Disponible</p>
+        <h2>Unidad 1 · Nosotros y Nosotras</h2>
+        <p>Veintiún ejercicios organizados como tarjetas con navegación secuencial, atajos mediante pestañas y un índice lateral para ir directamente al número que prefieras.</p>
+        <a class="unit-card__button" href="unidad-1.html">Comenzar la unidad</a>
+      </article>
 
-      </ul>
-    </nav>
+      <article class="unit-card unit-card--soon" aria-disabled="true">
+        <p class="unit-card__tag">Próximamente</p>
+        <h2>Unidad 2</h2>
+        <p>Estamos preparando nuevas actividades. Vuelve pronto para seguir practicando.</p>
+      </article>
+    </section>
   </main>
+
+  <footer class="landing-footer">
+    <p>Más contenidos estarán disponibles en futuras actualizaciones.</p>
+  </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
