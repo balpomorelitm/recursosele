@@ -435,6 +435,8 @@ input.incorrect, select.incorrect {
   padding: 0.5em;
   text-align: center;
   box-sizing: border-box;
+  font-size: 4rem;
+  line-height: 1;
 }
 
 .image-item img {
