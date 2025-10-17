@@ -21,42 +21,64 @@ function parseValidAnswers(dataAnswer) {
 }
 
 /**
- * Checks exercises with text inputs and select dropdowns, with animations.
+ * Checks exercises with text inputs and select dropdowns.
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function checkExercise(exerciseId) {
   const exerciseContainer = document.getElementById(exerciseId);
-  if (!exerciseContainer) return;
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
+    return;
+  }
+
+  const wordGroups = exerciseContainer.querySelectorAll('.word-group');
+  if (wordGroups.length) {
+    checkSelectedWords(exerciseId);
+    return;
+  }
 
   const inputs = exerciseContainer.querySelectorAll('input[type="text"], textarea, select');
   const resultContainer = document.getElementById(`result-${exerciseId}`);
-  if (!inputs.length || !resultContainer) return;
+
+  if (!inputs.length || !resultContainer) {
+    console.error('Could not find inputs or result container for', exerciseId);
+    return;
+  }
 
   let correctCount = 0;
-  
-  inputs.forEach((input, index) => {
+
+  inputs.forEach(input => {
     input.classList.remove('correct', 'incorrect');
-    // We add a small delay to each input for a staggered animation effect
-    setTimeout(() => {
-        const dataAnswer = input.getAttribute('data-answer');
-        const userAnswer = normaliseAnswer(input.value);
-        const validAnswers = parseValidAnswers(dataAnswer || '');
+    const dataAnswer = input.getAttribute('data-answer');
 
-        if (validAnswers.includes(userAnswer)) {
-          input.classList.add('correct');
-          correctCount++;
-        } else {
-          input.classList.add('incorrect');
-        }
+    if (!dataAnswer) {
+      input.classList.add('incorrect');
+      return;
+    }
 
-        // When the last input is animated, show the result
-        if (index === inputs.length - 1) {
-            const percentage = Math.round((correctCount / inputs.length) * 100);
-            resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${inputs.length})`;
-            resultContainer.style.color = percentage === 100 ? 'var(--color-correct)' : 'var(--color-incorrect)';
-        }
-    }, index * 50); // 50ms delay between each input check
+    const userAnswer = normaliseAnswer(input.value);
+    const validAnswers = parseValidAnswers(dataAnswer);
+
+    if (validAnswers.includes(userAnswer)) {
+      input.classList.add('correct');
+      correctCount++;
+    } else {
+      input.classList.add('incorrect');
+    }
   });
+
+  const percentage = Math.round((correctCount / inputs.length) * 100);
+  resultContainer.textContent = `Resultado: ${percentage}% correcto. (${correctCount} de ${inputs.length})`;
+  resultContainer.style.color = percentage === 100 ? '#2ecc71' : '#e74c3c';
 }
 
 /**
@@ -154,42 +176,68 @@ function showAnswers(exerciseId) {
 }
 
 /**
- * Clears all answers and resets the exercise state with a fade-out animation.
+ * Clears all answers and resets the exercise state.
  * @param {string} exerciseId The ID of the exercise container div.
  */
 function clearExercise(exerciseId) {
-    const exerciseContainer = document.getElementById(exerciseId);
-    if (!exerciseContainer) return;
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
 
-    // Add a class to trigger the fade-out animation
-    exerciseContainer.classList.add('clearing');
+  delete exerciseContainer.dataset.answersShown;
 
-    setTimeout(() => {
-        // Perform the reset after the animation
-        delete exerciseContainer.dataset.answersShown;
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+  if (resultContainer) {
+    resultContainer.textContent = '';
+    resultContainer.removeAttribute('style');
+  }
 
-        const resultContainer = document.getElementById(`result-${exerciseId}`);
-        if (resultContainer) resultContainer.textContent = '';
+  const textInputs = exerciseContainer.querySelectorAll('input[type="text"], textarea');
+  textInputs.forEach(input => {
+    const initialValue = input.getAttribute('data-initial-value');
+    input.value = initialValue !== null ? initialValue : '';
+    input.classList.remove('correct', 'incorrect');
+  });
 
-        const inputs = exerciseContainer.querySelectorAll('input, textarea, select');
-        inputs.forEach(input => {
-            input.classList.remove('correct', 'incorrect');
-            if (input.type === 'text' || input.tagName.toLowerCase() === 'textarea') {
-                input.value = '';
-            } else if (input.type === 'radio' || input.type === 'checkbox') {
-                input.checked = false;
-            } else if (input.tagName.toLowerCase() === 'select') {
-                input.selectedIndex = 0;
-            }
-        });
+  const selectInputs = exerciseContainer.querySelectorAll('select');
+  selectInputs.forEach(select => {
+    const initialValue = select.getAttribute('data-initial-value');
+    if (initialValue !== null) {
+      select.value = initialValue;
+    } else {
+      select.selectedIndex = 0;
+    }
+    select.classList.remove('correct', 'incorrect');
+  });
 
-        // Re-enable the check button
-        const checkButton = exerciseContainer.querySelector('[data-role="check"]');
-        if (checkButton) checkButton.disabled = false;
+  const radioButtons = exerciseContainer.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach(radio => {
+    const initialChecked = radio.getAttribute('data-initial-checked');
+    radio.checked = initialChecked === 'true';
+  });
 
-        // Remove the animation class so it can be re-triggered
-        exerciseContainer.classList.remove('clearing');
-    }, 300); // Match this with the CSS animation duration
+  const checkboxes = exerciseContainer.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(box => {
+    const initialChecked = box.getAttribute('data-initial-checked');
+    box.checked = initialChecked === 'true';
+  });
+
+  const rows = exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]');
+  rows.forEach(row => {
+    row.classList.remove('correct', 'incorrect');
+  });
+
+  const wordGroups = exerciseContainer.querySelectorAll('.word-group');
+  wordGroups.forEach(group => {
+    group.classList.remove('correct', 'incorrect');
+  });
+
+  const checkButton = exerciseContainer.querySelector('[data-role="check"]');
+  if (checkButton) {
+    checkButton.disabled = false;
+  }
 }
 
 /**
