@@ -360,12 +360,12 @@ h1, h2, h3 {
   border-color: #bf651b;
 }
 
-input.correct, select.correct {
+input.correct, select.correct, textarea.correct {
   border: 2px solid #2e8b57;
   background-color: #f0fff4;
 }
 
-input.incorrect, select.incorrect {
+input.incorrect, select.incorrect, textarea.incorrect {
   border: 2px solid #c0392b;
   background-color: #fff5f5;
 }
@@ -485,6 +485,14 @@ input.incorrect, select.incorrect {
 .comparison-table input[type="text"] {
   width: 95%;
   box-sizing: border-box;
+}
+
+.comparison-table--split {
+  table-layout: fixed;
+}
+
+.comparison-table--split col {
+  width: 50%;
 }
 
 .word-group {

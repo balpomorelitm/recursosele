@@ -448,6 +448,54 @@ function checkSelectedWords(exerciseId) {
 }
 
 /**
+ * Provides feedback for open-ended exercises that require the learner to write their own answer.
+ * @param {string} exerciseId The ID of the exercise container div.
+ */
+function checkOpenExercise(exerciseId) {
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
+    return;
+  }
+
+  const textAreas = exerciseContainer.querySelectorAll('textarea');
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+
+  if (!textAreas.length || !resultContainer) {
+    console.warn('Could not find open fields or result container for', exerciseId);
+    return;
+  }
+
+  let allFilled = true;
+
+  textAreas.forEach(area => {
+    const hasContent = area.value.trim().length > 0;
+    area.classList.remove('correct', 'incorrect');
+    area.classList.add(hasContent ? 'correct' : 'incorrect');
+    if (!hasContent) {
+      allFilled = false;
+    }
+  });
+
+  if (allFilled) {
+    resultContainer.textContent = '¡Buen trabajo! Ahora compara tu traducción con la respuesta orientativa.';
+    resultContainer.style.color = '#2c3e50';
+  } else {
+    resultContainer.textContent = 'Escribe tu traducción en todas las casillas antes de corregir.';
+    resultContainer.style.color = '#e74c3c';
+  }
+}
+
+/**
  * Runs through all exercises and checks them.
  */
 function checkAllExercises() {
@@ -634,6 +682,7 @@ window.checkRadioExercise = checkRadioExercise;
 window.checkCheckboxExercise = checkCheckboxExercise;
 window.checkSelectedWords = checkSelectedWords;
 window.checkAllExercises = checkAllExercises;
+window.checkOpenExercise = checkOpenExercise;
 
 /**
  * Resets an exercise to its initial state.
