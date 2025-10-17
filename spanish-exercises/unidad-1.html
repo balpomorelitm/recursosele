@@ -131,7 +131,9 @@
                   <td><input type="radio" name="q1e" value="dice friend?"> dice friend?</td>
                 </tr>
               </table>
-              <button onclick="checkRadioExercise('ex1')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkRadioExercise('ex1')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex1')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex1')">Borrar todo</button>
               <div class="result" id="result-ex1"></div>
             </div>
           </article>
@@ -152,8 +154,9 @@
               <p>g. Clasifica estos verbos en la tabla.<br><input type="text" class="line-input" data-answer="classify these verbs in the table."></p>
               <p>h. Escucha y marca.<br><input type="text" class="line-input" data-answer="listen and mark."></p>
               <p>i. Traduce.<br><input type="text" class="line-input" data-answer="translate."></p>
-              <button onclick="checkExercise('ex2')">Corregir</button>
-              <button type="button" class="button--ghost" onclick="showAnswers('ex2')">Mostrar respuestas</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex2')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex2')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex2')">Borrar todo</button>
               <div class="result" id="result-ex2"></div>
             </div>
           </article>
@@ -177,7 +180,9 @@
               <p><strong>c.</strong> ¿Qué <input type="text" data-answer="significa &quot;mesa&quot;" size="15">?</p>
               <p><strong>d.</strong> ¿Cuántos <input type="text" data-answer="años tienes" size="12">?</p>
               <p><strong>e.</strong> ¿A qué <input type="text" data-answer="se dedica Julia" size="15">?</p>
-              <button onclick="checkExercise('ex3')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex3')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex3')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex3')">Borrar todo</button>
               <div class="result" id="result-ex3"></div>
             </div>
           </article>
@@ -259,8 +264,9 @@
                   </tr>
                 </tbody>
               </table>
-              <button onclick="checkExercise('ex4')">Corregir</button>
-              <button type="button" class="button--ghost" onclick="showAnswers('ex4')">Mostrar respuestas</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex4')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex4')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex4')">Borrar todo</button>
               <div class="result" id="result-ex4"></div>
             </div>
           </article>
@@ -271,21 +277,15 @@
               <h2 class="exercise-card__title">Corrige los errores</h2>
             </header>
             <div class="exercise" id="ex5">
-              <h3>5. Gary is learning Spanish... Can you help him correct his mistakes? There are 6 mistakes.</h3>
+              <h3>5. Gary is learning Spanish... Can you help him correct his mistakes? Escribe el texto completo ya corregido.</h3>
               <div class="text-block">
                 ¡Hola! Me llamo es Gary. Soy un periodista y estudio español en Liverpool. Soy de irlandés, pero vivo en Liverpool porque mi mujer es Inglaterra. Ella es llama Kate y es 36 años, como yo.
               </div>
-              <p>Corrections:</p>
-              <div class="grid-inputs two-columns">
-                <span>1. <input type="text" data-answer="me llamo" size="10"></span>
-                <span>2. <input type="text" data-answer="irlanda" size="10"></span>
-                <span>3. <input type="text" data-answer="inglesa" size="10"></span>
-                <span>4. <input type="text" data-answer="se llama" size="10"></span>
-                <span>5. <input type="text" data-answer="tiene" size="10"></span>
-                <span>6. <input type="text" data-answer="tengo" size="10"></span>
-              </div>
-              <button onclick="checkExercise('ex5')">Corregir</button>
-              <button type="button" class="button--ghost" onclick="showAnswers('ex5')">Mostrar respuestas</button>
+              <p>Corrección completa:</p>
+              <textarea data-answer="Hola, me llamo Gary, soy periodista y estudio español en Liverpool. Soy de Irlanda, pero vivo en Liverpool porque mi mujer es inglesa. Ella se llama Kate y tiene 36 años como yo.|¡Hola! Me llamo Gary, soy periodista y estudio español en Liverpool. Soy de Irlanda, pero vivo en Liverpool porque mi mujer es inglesa. Ella se llama Kate y tiene 36 años como yo." rows="5" aria-label="Texto corregido del ejercicio 5"></textarea>
+              <button type="button" data-role="check" onclick="checkExercise('ex5')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex5')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex5')">Borrar todo</button>
               <div class="result" id="result-ex5"></div>
             </div>
             <div class="explanation-box">
@@ -325,7 +325,9 @@
                 <span>bail<input type="text" data-answer="ar" size="3"></span>
                 <span>ten<input type="text" data-answer="er" size="3"></span>
               </div>
-              <button onclick="checkExercise('ex6')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex6')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex6')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex6')">Borrar todo</button>
               <div class="result" id="result-ex6"></div>
             </div>
           </article>
@@ -351,7 +353,9 @@
                 <span>sois: <input type="text" data-answer="ser" size="8"></span>
                 <span>tenéis: <input type="text" data-answer="tener" size="8"></span>
               </div>
-              <button onclick="checkExercise('ex7')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex7')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex7')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex7')">Borrar todo</button>
               <div class="result" id="result-ex7"></div>
             </div>
           </article>
@@ -385,7 +389,9 @@
                   </tbody>
                 </table>
               </div>
-              <button onclick="checkCheckboxExercise('ex8')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkCheckboxExercise('ex8')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex8')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex8')">Borrar todo</button>
               <div class="result" id="result-ex8"></div>
             </div>
           </article>
@@ -407,7 +413,9 @@
               <p>• ¿Cuál <input type="text" data-answer="es" size="5"> tu número de móvil?<br>• No <input type="text" data-answer="tengo" size="5"> móvil en España...<br>• ¿Y <input type="text" data-answer="tienes" size="5"> correo electrónico?</p>
               <p><strong>e.</strong></p>
               <p>• Hola, <input type="text" data-answer="somos" size="5"> Álvaro y Markus.<br>• Ah, hola. Yo me llamo Marta. Trabajo con Javier en el hospital.<br>• Ah, ¿<input type="text" data-answer="sois" size="5"> enfermera, como Javier?<br>• No, <input type="text" data-answer="somos" size="5"> médica.</p>
-              <button onclick="checkExercise('ex9')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex9')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex9')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex9')">Borrar todo</button>
               <div class="result" id="result-ex9"></div>
             </div>
           </article>
@@ -435,7 +443,9 @@
                   <tr><td>marroquí</td><td><input type="text" data-answer="marroquí"></td></tr>
                 </tbody>
               </table>
-              <button onclick="checkExercise('ex10')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex10')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex10')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex10')">Borrar todo</button>
               <div class="result" id="result-ex10"></div>
             </div>
           </article>
@@ -461,7 +471,9 @@
                   <tr><td>futbolista</td><td><input type="text" data-answer="futbolista"></td></tr>
                 </tbody>
               </table>
-              <button onclick="checkExercise('ex11')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex11')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex11')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex11')">Borrar todo</button>
               <div class="result" id="result-ex11"></div>
             </div>
           </article>
@@ -479,7 +491,9 @@
                 <li>If the masculine ends in a consonant (for example <input type="text" data-answer="español" size="10">), we need to add <input type="text" data-answer="-a" size="3"> for the feminine.</li>
                 <li>Some are irregular, like <strong>actor</strong>, whose feminine is <input type="text" data-answer="actriz" size="10">.</li>
               </ul>
-              <button onclick="checkExercise('ex12')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex12')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex12')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex12')">Borrar todo</button>
               <div class="result" id="result-ex12"></div>
             </div>
           </article>
@@ -545,7 +559,9 @@
                   <span>13. <input type="text" data-answer="papelera" size="15"></span>
                 </div>
               </div>
-              <button type="button" onclick="checkExercise('ex13')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex13')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex13')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex13')">Borrar todo</button>
               <div class="result" id="result-ex13"></div>
             </div>
           </article>
@@ -564,7 +580,9 @@
               <p>e. Ce, a, eme, a, erre, e, erre, o: <input type="text" data-answer="camarero" size="20"></p>
               <p>f. Efe, ene, efe, e, erre, eme, e, erre, o: <input type="text" data-answer="enfermero" size="20"></p>
               <p>g. Pe, erre, o, efe, e, ese, o, erre: <input type="text" data-answer="profesor" size="20"></p>
-              <button type="button" onclick="checkExercise('ex14')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex14')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex14')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex14')">Borrar todo</button>
               <div class="result" id="result-ex14"></div>
             </div>
           </article>
@@ -584,7 +602,9 @@
               <p>• Trece: <input type="text" data-answer="31" size="5"> (treinta y uno)</p>
               <p>• Setenta y ocho: <input type="text" data-answer="87" size="5"> (ochenta y siete)</p>
               <p>• Dieciséis: <input type="text" data-answer="61" size="5"> (sesenta y uno)</p>
-              <button type="button" onclick="checkExercise('ex15')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex15')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex15')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex15')">Borrar todo</button>
               <div class="result" id="result-ex15"></div>
             </div>
           </article>
@@ -614,7 +634,9 @@
               <p>c. <input type="text" data-answer="rosa" size="10"> tiene 54 años.</p>
               <p>d. Eva y <input type="text" data-answer="sukio" size="10"> tienen 30 años.</p>
               <p>e. <input type="text" data-answer="john" size="10"> y Alice tienen 18 años.</p>
-              <button type="button" onclick="checkExercise('ex16')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex16')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex16')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex16')">Borrar todo</button>
               <div class="result" id="result-ex16"></div>
             </div>
           </article>
@@ -645,7 +667,9 @@
                 <span class="word-group"><input type="checkbox" id="w17f2" value="mi"> <label for="w17f2">mi</label></span>
               </p>
               <p class="note">(Note: This exercise requires an audio file to function as intended. User will simulate listening.)</p>
-              <button type="button" onclick="checkSelectedWords('ex17')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkSelectedWords('ex17')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex17')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex17')">Borrar todo</button>
               <div class="result" id="result-ex17"></div>
             </div>
           </article>
@@ -680,7 +704,9 @@
                   <p>• <input type="text" data-answer="inteligente" size="10"></p>
                 </div>
               </div>
-              <button type="button" onclick="checkExercise('ex18')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex18')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex18')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex18')">Borrar todo</button>
               <div class="result" id="result-ex18"></div>
             </div>
           </article>
@@ -715,7 +741,9 @@
                   <p>• <input type="text" data-answer="ciudad" size="15"></p>
                 </div>
               </div>
-              <button type="button" onclick="checkExercise('ex19')">Corregir</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex19')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex19')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex19')">Borrar todo</button>
               <div class="result" id="result-ex19"></div>
             </div>
           </article>
@@ -788,8 +816,9 @@
                   </tr>
                 </tbody>
               </table>
-              <button type="button" onclick="checkExercise('ex20')">Corregir</button>
-              <button type="button" class="button--ghost" onclick="showAnswers('ex20')">Mostrar respuestas</button>
+              <button type="button" data-role="check" onclick="checkExercise('ex20')">Corregir</button>
+              <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex20')">Mostrar respuestas</button>
+              <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex20')">Borrar todo</button>
               <div class="result" id="result-ex20"></div>
             </div>
           </article>

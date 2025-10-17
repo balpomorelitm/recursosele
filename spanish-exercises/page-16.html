@@ -77,7 +77,9 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" onclick="checkExercise('ex21')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex21')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex21')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex21')">Borrar todo</button>
       <div class="result" id="result-ex21"></div>
     </section>
   </main>

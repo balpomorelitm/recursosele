@@ -54,7 +54,9 @@
                     <td><input type="radio" name="q1e" value="dice friend?"></td>
                 </tr>
             </table>
-            <button onclick="checkRadioExercise('ex1')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkRadioExercise('ex1')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex1')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex1')">Borrar todo</button>
             <div class="result" id="result-ex1"></div>
         </div>
 
@@ -69,7 +71,9 @@
             <p>g. Clasifica estos verbos en la tabla.<br><input type="text" class="line-input" data-answer="Classify these verbs in the table."></p>
             <p>h. Escucha y marca.<br><input type="text" class="line-input" data-answer="Listen and mark."></p>
             <p>i. Traduce.<br><input type="text" class="line-input" data-answer="Translate."></p>
-            <button onclick="checkExercise('ex2')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex2')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex2')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex2')">Borrar todo</button>
             <div class="result" id="result-ex2"></div>
         </div>
     </div>

@@ -35,7 +35,9 @@
         <span class="word-group"><input type="checkbox" id="w17f2" value="mi"> <label for="w17f2">mi</label></span>
       </p>
       <p class="note">(Note: This exercise requires an audio file to function as intended. User will simulate listening.)</p>
-      <button type="button" onclick="checkSelectedWords('ex17')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkSelectedWords('ex17')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex17')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex17')">Borrar todo</button>
       <div class="result" id="result-ex17"></div>
     </section>
 
@@ -62,7 +64,9 @@
           <p>• <input type="text" data-answer="inteligente" size="10"></p>
         </div>
       </div>
-      <button type="button" onclick="checkExercise('ex19')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex19')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex19')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex19')">Borrar todo</button>
       <div class="result" id="result-ex19"></div>
     </section>
 
@@ -85,7 +89,9 @@
           <p>• <input type="text" data-answer="ciudad" size="15"></p>
         </div>
       </div>
-      <button type="button" onclick="checkExercise('ex20')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex20')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex20')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex20')">Borrar todo</button>
       <div class="result" id="result-ex20"></div>
     </section>
   </main>

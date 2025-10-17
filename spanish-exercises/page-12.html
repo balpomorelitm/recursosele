@@ -70,7 +70,9 @@
           <span>13. <input type="text" data-answer="papelera" size="15"></span>
         </div>
       </div>
-      <button type="button" onclick="checkExercise('ex13')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex13')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex13')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex13')">Borrar todo</button>
       <div class="result" id="result-ex13"></div>
     </section>
 
@@ -83,7 +85,9 @@
       <p>e. Ce, a, eme, a, erre, e, erre, o: <input type="text" data-answer="camarero" size="20"></p>
       <p>f. Efe, ene, efe, e, erre, eme, e, erre, o: <input type="text" data-answer="enfermero" size="20"></p>
       <p>g. Pe, erre, o, efe, e, ese, o, erre: <input type="text" data-answer="profesor" size="20"></p>
-      <button type="button" onclick="checkExercise('ex14')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex14')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex14')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex14')">Borrar todo</button>
       <div class="result" id="result-ex14"></div>
     </section>
   </main>

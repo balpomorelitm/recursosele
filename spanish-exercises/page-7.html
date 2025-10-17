@@ -22,7 +22,9 @@
             <p><strong>c.</strong> ¿Qué <input type="text" data-answer="significa &quot;mesa&quot;" size="15">?</p>
             <p><strong>d.</strong> ¿Cuántos <input type="text" data-answer="años tienes" size="12">?</p>
             <p><strong>e.</strong> ¿A qué <input type="text" data-answer="se dedica Julia" size="15">?</p>
-            <button onclick="checkExercise('ex3')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex3')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex3')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex3')">Borrar todo</button>
             <div class="result" id="result-ex3"></div>
         </div>
 
@@ -45,25 +47,22 @@
                     <input type="radio" name="q4_5" value="e"> <span>Es periodista. Trabaja en un periódico digital.</span>
                 </div>
             </div>
-            <button onclick="checkRadioExercise('ex4')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkRadioExercise('ex4')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex4')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex4')">Borrar todo</button>
             <div class="result" id="result-ex4"></div>
         </div>
 
         <div class="exercise" id="ex5">
-            <h3>5. Gary is learning Spanish... Can you help him correct his mistakes? There are 6 mistakes.</h3>
+            <h3>5. Gary is learning Spanish... Can you help him correct his mistakes? Escribe el texto completo ya corregido.</h3>
             <div class="text-block">
                 ¡Hola! Me llamo es Gary. Soy un periodista y estudio español en Liverpool. Soy de irlandés, pero vivo en Liverpool porque mi mujer es Inglaterra. Ella es llama Kate y es 36 años, como yo.
             </div>
-            <p>Corrections:</p>
-            <div class="grid-inputs two-columns">
-                <span>1. <input type="text" data-answer="Me llamo" size="10"></span>
-                <span>2. <input type="text" data-answer="Irlanda" size="10"></span>
-                <span>3. <input type="text" data-answer="inglesa" size="10"></span>
-                <span>4. <input type="text" data-answer="se llama" size="10"></span>
-                <span>5. <input type="text" data-answer="tiene" size="10"></span>
-                <span>6. <input type="text" data-answer="tengo" size="10"></span>
-            </div>
-            <button onclick="checkExercise('ex5')">Corregir</button>
+            <p>Corrección completa:</p>
+            <textarea data-answer="Hola, me llamo Gary, soy periodista y estudio español en Liverpool. Soy de Irlanda, pero vivo en Liverpool porque mi mujer es inglesa. Ella se llama Kate y tiene 36 años como yo.|¡Hola! Me llamo Gary, soy periodista y estudio español en Liverpool. Soy de Irlanda, pero vivo en Liverpool porque mi mujer es inglesa. Ella se llama Kate y tiene 36 años como yo." rows="5" aria-label="Texto corregido del ejercicio 5"></textarea>
+            <button type="button" data-role="check" onclick="checkExercise('ex5')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex5')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex5')">Borrar todo</button>
             <div class="result" id="result-ex5"></div>
         </div>
 
