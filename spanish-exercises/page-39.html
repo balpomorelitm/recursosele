@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 39 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="exercise" id="ex61">
+            <h3>17. Pronounce these words paying attention to the sound of the vowels in Spanish. Then listen to the recording and repeat.</h3>
+            <div class="audio-box">
+                <audio controls preload="none">
+                  <source src="audio/unidad3-ej17.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento <code>audio</code>.
+                </audio>
+                <p class="note">Audio file to be added.</p>
+            </div>
+            <div class="grid-inputs" style="grid-template-columns: repeat(3, 1fr);">
+                <span>• mate</span><span>agencia</span><span>hay</span>
+                <span>• me</span><span>teatro</span><span>Europa</span>
+                <span>• isla</span><span>país</span><span>América</span>
+                <span>• mucho</span><span>osos</span><span>lago</span>
+                <span>• cultural</span><span>mundo</span><span>Dublín</span>
+            </div>
+            <p class="note">(This is a listening/speaking exercise, no auto-correction needed.)</p>
+        </div>
+
+        <h1>EN COMPARACIÓN</h1>
+        <div class="exercise" id="ex62">
+            <table class="comparison-table">
+                <thead><tr><th>EN ESPAÑOL</th><th>EN INGLÉS</th></tr></thead>
+                <tbody>
+                    <tr><td>¿Cuántos habitantes hay en Santiago?</td><td><input type="text" data-answer="How many inhabitants are there in Santiago?" class="line-input"></td></tr>
+                    <tr><td><input type="text" data-answer="¿Dónde está el lago Titicaca?" class="line-input"></td><td>Where is Lake Titicaca?</td></tr>
+                    <tr><td>¿Cuál es la capital de Ecuador?</td><td><input type="text" data-answer="What is the capital of Ecuador?" class="line-input"></td></tr>
+                    <tr><td><input type="text" data-answer="En Perú hablan español pero también hay otras dos lenguas oficiales: aimara y guaraní." class="line-input"></td><td>In Peru they speak Spanish but there are also two other official languages: aimara and guaraní.</td></tr>
+                    <tr><td>¿Cómo es el clima en el norte de España?</td><td><input type="text" data-answer="What is the weather like in the north of Spain?" class="line-input"></td></tr>
+                    <tr><td><input type="text" data-answer="En Venezuela hay mucho petróleo." class="line-input"></td><td>In Venezuela there is a lot of oil.</td></tr>
+                    <tr><td>España es un país con muchas montañas.</td><td><input type="text" data-answer="Spain is a country with many mountains." class="line-input"></td></tr>
+                    <tr><td><input type="text" data-answer="Argentina es un país muy grande y tiene climas diferentes: subtropical, templado y subpolar." class="line-input"></td><td>Argentina is a very big country and has different climates: subtropical, temperate and subpolar.</td></tr>
+                </tbody>
+            </table>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button onclick="checkExercise('ex62')">Corregir</button>
+                <button class="button--ghost" onclick="showAnswers('ex62')">Mostrar respuestas</button>
+                <button class="button--ghost" onclick="resetExercise('ex62')">Borrar todo</button>
+            </div>
+            <div class="result" id="result-ex62"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

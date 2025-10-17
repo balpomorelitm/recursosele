@@ -634,3 +634,44 @@ window.checkRadioExercise = checkRadioExercise;
 window.checkCheckboxExercise = checkCheckboxExercise;
 window.checkSelectedWords = checkSelectedWords;
 window.checkAllExercises = checkAllExercises;
+
+/**
+ * Resets an exercise to its initial state.
+ * @param {string} exerciseId The ID of the exercise container div.
+ */
+function resetExercise(exerciseId) {
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  // Reset all input fields
+  const inputs = exerciseContainer.querySelectorAll('input[type="text"], input[type="radio"], input[type="checkbox"], select');
+  inputs.forEach(input => {
+    input.classList.remove('correct', 'incorrect');
+    if (input.type === 'text') {
+      input.value = '';
+    } else if (input.type === 'radio' || input.type === 'checkbox') {
+      input.checked = false;
+    } else if (input.tagName.toLowerCase() === 'select') {
+      input.selectedIndex = 0;
+    }
+  });
+
+  // Reset parent containers for radio/checkbox exercises
+  const itemContainers = exerciseContainer.querySelectorAll('tr[data-answer], .word-group');
+  itemContainers.forEach(container => {
+    container.classList.remove('correct', 'incorrect');
+  });
+
+  // Clear the result message
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+  if (resultContainer) {
+    resultContainer.textContent = '';
+  }
+}
+
+// Add the new function to the window object to make it accessible from HTML
+window.resetExercise = resetExercise;
+
