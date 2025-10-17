@@ -41,7 +41,11 @@
             <p><strong>c.</strong> Mi país <select data-answer="está"><option></option><option>es</option><option>está</option></select> en el sur de Europa. La capital <select data-answer="es"><option></option><option>es</option><option>está</option></select> famosa por sus ruinas. En verano muchos turistas visitan las islas que <select data-answer="están"><option></option><option>son</option><option>están</option></select> en el sur.</p>
             <p>• País: <input type="text" data-answer="Grecia" class="line-input"></p>
 
-            <button onclick="checkExercise('ex47')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex47')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex47')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex47')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex47"></div>
         </div>
     </div>

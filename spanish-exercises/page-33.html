@@ -23,7 +23,11 @@
                     <tr><td>verb + <strong>mucho</strong></td><td><input type="text" class="line-input" data-answer="es mucho"></td></tr>
                 </tbody>
             </table>
-            <button onclick="checkExercise('ex53')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex53')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex53')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex53')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex53"></div>
         </div>
     </div>

@@ -26,7 +26,11 @@
             <p>f. Cádiz <select data-answer="está"><option></option><option>es</option><option>está</option><option>hay</option></select> en Andalucía.</p>
             <p>g. En Galicia <select data-answer="hay"><option></option><option>es</option><option>está</option><option>hay</option></select> playas muy bonitas.</p>
             <p>h. En Almería el clima <select data-answer="es"><option></option><option>es</option><option>está</option><option>hay</option></select> muy seco.</p>
-            <button onclick="checkExercise('ex48')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex48')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex48')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex48')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex48"></div>
         </div>
 
@@ -50,7 +54,11 @@
                 <p>¡Un beso y hasta pronto!</p>
                 <p>Nadia</p>
             </div>
-            <button onclick="checkExercise('ex49')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex49')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex49')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex49')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex49"></div>
         </div>
     </div>
