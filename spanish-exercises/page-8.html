@@ -26,7 +26,9 @@
                 <span>bail<input type="text" data-answer="ar" size="3"></span>
                 <span>ten<input type="text" data-answer="er" size="3"></span>
             </div>
-            <button onclick="checkExercise('ex6')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex6')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex6')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex6')">Borrar todo</button>
             <div class="result" id="result-ex6"></div>
         </div>
 
@@ -46,7 +48,9 @@
                 <span>sois: <input type="text" data-answer="ser" size="8"></span>
                 <span>tenéis: <input type="text" data-answer="tener" size="8"></span>
             </div>
-            <button onclick="checkExercise('ex7')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex7')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex7')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex7')">Borrar todo</button>
             <div class="result" id="result-ex7"></div>
         </div>
     </div>

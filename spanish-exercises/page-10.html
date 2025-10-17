@@ -28,7 +28,9 @@
                     <tr><td>marroquí</td><td><input type="text" data-answer="marroquí"></td></tr>
                 </tbody>
             </table>
-            <button onclick="checkExercise('ex10')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex10')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex10')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex10')">Borrar todo</button>
             <div class="result" id="result-ex10"></div>
         </div>
     </div>

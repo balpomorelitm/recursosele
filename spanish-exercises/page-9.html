@@ -32,7 +32,9 @@
                     </tbody>
                 </table>
             </div>
-            <button onclick="checkCheckboxExercise('ex8')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkCheckboxExercise('ex8')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex8')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex8')">Borrar todo</button>
             <div class="result" id="result-ex8"></div>
         </div>
 
@@ -48,7 +50,9 @@
             <p>• ¿Cuál <input type="text" data-answer="es" size="5"> tu número de móvil?<br>• No <input type="text" data-answer="tengo" size="5"> móvil en España...<br>• ¿Y <input type="text" data-answer="tienes" size="5"> correo electrónico?</p>
             <p><strong>e.</strong></p>
             <p>• Hola, <input type="text" data-answer="somos" size="5"> Álvaro y Markus.<br>• Ah, hola. Yo me llamo Marta. Trabajo con Javier en el hospital.<br>• Ah, ¿<input type="text" data-answer="sois" size="5"> enfermera, como Javier?<br>• No, <input type="text" data-answer="somos" size="5"> médica.</p>
-            <button onclick="checkExercise('ex9')">Corregir</button>
+            <button type="button" data-role="check" onclick="checkExercise('ex9')">Corregir</button>
+            <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex9')">Mostrar respuestas</button>
+            <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex9')">Borrar todo</button>
             <div class="result" id="result-ex9"></div>
         </div>
     </div>

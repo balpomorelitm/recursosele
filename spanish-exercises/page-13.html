@@ -30,7 +30,9 @@
       <p>• Trece: <input type="text" data-answer="31" size="5"> (treinta y uno)</p>
       <p>• Setenta y ocho: <input type="text" data-answer="87" size="5"> (ochenta y siete)</p>
       <p>• Dieciséis: <input type="text" data-answer="61" size="5"> (sesenta y uno)</p>
-      <button type="button" onclick="checkExercise('ex15')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex15')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex15')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex15')">Borrar todo</button>
       <div class="result" id="result-ex15"></div>
     </section>
 
@@ -54,7 +56,9 @@
       <p>c. <input type="text" data-answer="rosa" size="10"> tiene 54 años.</p>
       <p>d. Eva y <input type="text" data-answer="sukio" size="10"> tienen 30 años.</p>
       <p>e. <input type="text" data-answer="john" size="10"> y Alice tienen 18 años.</p>
-      <button type="button" onclick="checkExercise('ex16')">Corregir</button>
+      <button type="button" data-role="check" onclick="checkExercise('ex16')">Corregir</button>
+      <button type="button" class="button--ghost" data-role="show-answers" onclick="showAnswers('ex16')">Mostrar respuestas</button>
+      <button type="button" class="button--ghost" data-role="clear" onclick="clearExercise('ex16')">Borrar todo</button>
       <div class="result" id="result-ex16"></div>
     </section>
   </main>

@@ -31,13 +31,22 @@ function checkExercise(exerciseId) {
     return;
   }
 
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
+    return;
+  }
+
   const wordGroups = exerciseContainer.querySelectorAll('.word-group');
   if (wordGroups.length) {
     checkSelectedWords(exerciseId);
     return;
   }
 
-  const inputs = exerciseContainer.querySelectorAll('input[type="text"], select');
+  const inputs = exerciseContainer.querySelectorAll('input[type="text"], textarea, select');
   const resultContainer = document.getElementById(`result-${exerciseId}`);
 
   if (!inputs.length || !resultContainer) {
@@ -83,9 +92,11 @@ function showAnswers(exerciseId) {
     return;
   }
 
+  exerciseContainer.dataset.answersShown = 'true';
+
   const resultContainer = document.getElementById(`result-${exerciseId}`);
 
-  const textInputs = exerciseContainer.querySelectorAll('input[type="text"]');
+  const textInputs = exerciseContainer.querySelectorAll('input[type="text"], textarea');
   textInputs.forEach(input => {
     const dataAnswer = input.getAttribute('data-answer');
     if (!dataAnswer) {
@@ -136,10 +147,132 @@ function showAnswers(exerciseId) {
     }
   });
 
+  const wordGroupCheckboxes = exerciseContainer.querySelectorAll('.word-group input[type="checkbox"]');
+  wordGroupCheckboxes.forEach(checkbox => {
+    const parentGroup = checkbox.closest('.word-group');
+    if (checkbox.hasAttribute('data-answer')) {
+      checkbox.checked = true;
+      if (parentGroup) {
+        parentGroup.classList.remove('incorrect');
+        parentGroup.classList.add('correct');
+      }
+    } else {
+      checkbox.checked = false;
+      if (parentGroup) {
+        parentGroup.classList.remove('correct', 'incorrect');
+      }
+    }
+  });
+
   if (resultContainer) {
     resultContainer.textContent = 'Respuestas mostradas. ¡Repasa y vuelve a intentarlo cuando quieras!';
     resultContainer.style.color = '#6b4b2b';
   }
+
+  const checkButton = exerciseContainer.querySelector('[data-role="check"]');
+  if (checkButton) {
+    checkButton.disabled = true;
+  }
+}
+
+/**
+ * Clears all answers and resets the exercise state.
+ * @param {string} exerciseId The ID of the exercise container div.
+ */
+function clearExercise(exerciseId) {
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  delete exerciseContainer.dataset.answersShown;
+
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+  if (resultContainer) {
+    resultContainer.textContent = '';
+    resultContainer.removeAttribute('style');
+  }
+
+  const textInputs = exerciseContainer.querySelectorAll('input[type="text"], textarea');
+  textInputs.forEach(input => {
+    const initialValue = input.getAttribute('data-initial-value');
+    input.value = initialValue !== null ? initialValue : '';
+    input.classList.remove('correct', 'incorrect');
+  });
+
+  const selectInputs = exerciseContainer.querySelectorAll('select');
+  selectInputs.forEach(select => {
+    const initialValue = select.getAttribute('data-initial-value');
+    if (initialValue !== null) {
+      select.value = initialValue;
+    } else {
+      select.selectedIndex = 0;
+    }
+    select.classList.remove('correct', 'incorrect');
+  });
+
+  const radioButtons = exerciseContainer.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach(radio => {
+    const initialChecked = radio.getAttribute('data-initial-checked');
+    radio.checked = initialChecked === 'true';
+  });
+
+  const checkboxes = exerciseContainer.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(box => {
+    const initialChecked = box.getAttribute('data-initial-checked');
+    box.checked = initialChecked === 'true';
+  });
+
+  const rows = exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]');
+  rows.forEach(row => {
+    row.classList.remove('correct', 'incorrect');
+  });
+
+  const wordGroups = exerciseContainer.querySelectorAll('.word-group');
+  wordGroups.forEach(group => {
+    group.classList.remove('correct', 'incorrect');
+  });
+
+  const checkButton = exerciseContainer.querySelector('[data-role="check"]');
+  if (checkButton) {
+    checkButton.disabled = false;
+  }
+}
+
+/**
+ * Stores the initial values of inputs and selects for later resets.
+ */
+function cacheInitialValues() {
+  const exercises = document.querySelectorAll('.exercise');
+  exercises.forEach(exercise => {
+    const textInputs = exercise.querySelectorAll('input[type="text"], textarea');
+    textInputs.forEach(input => {
+      if (!input.hasAttribute('data-initial-value')) {
+        input.setAttribute('data-initial-value', input.value);
+      }
+    });
+
+    const selectInputs = exercise.querySelectorAll('select');
+    selectInputs.forEach(select => {
+      if (!select.hasAttribute('data-initial-value')) {
+        select.setAttribute('data-initial-value', select.value);
+      }
+    });
+
+    const choiceInputs = exercise.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+    choiceInputs.forEach(input => {
+      if (!input.hasAttribute('data-initial-checked')) {
+        input.setAttribute('data-initial-checked', input.checked ? 'true' : 'false');
+      }
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', cacheInitialValues);
+} else {
+  cacheInitialValues();
 }
 
 /**
@@ -148,7 +281,21 @@ function showAnswers(exerciseId) {
  */
 function checkRadioExercise(exerciseId) {
   const exerciseContainer = document.getElementById(exerciseId);
-  const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]') : [];
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
+    return;
+  }
+
+  const questions = exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]');
   const resultContainer = document.getElementById(`result-${exerciseId}`);
 
   if (!questions.length || !resultContainer) {
@@ -183,7 +330,21 @@ function checkRadioExercise(exerciseId) {
  */
 function checkCheckboxExercise(exerciseId) {
   const exerciseContainer = document.getElementById(exerciseId);
-  const questions = exerciseContainer ? exerciseContainer.querySelectorAll('tr[data-answer]') : [];
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
+    return;
+  }
+
+  const questions = exerciseContainer.querySelectorAll('tr[data-answer]');
   const resultContainer = document.getElementById(`result-${exerciseId}`);
 
   if (!questions.length || !resultContainer) {
@@ -230,6 +391,15 @@ function checkSelectedWords(exerciseId) {
   const exerciseContainer = document.getElementById(exerciseId);
   if (!exerciseContainer) {
     console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  if (exerciseContainer.dataset.answersShown === 'true') {
+    const resultContainer = document.getElementById(`result-${exerciseId}`);
+    if (resultContainer) {
+      resultContainer.textContent = 'Por favor, borra tus respuestas antes de intentar corregir de nuevo.';
+      resultContainer.style.color = '#e67e22';
+    }
     return;
   }
 
