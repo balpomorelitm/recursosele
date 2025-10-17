@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 3 · Ejercicios de Español</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="unit-layout">
+    <header class="unit-header">
+      <div class="unit-header__info">
+        <h1>Unidad 3 · ¿Dónde está Santiago?</h1>
+        <p class="unit-header__subtitle">Ejercicios para practicar las diferencias entre ser, estar y hay.</p>
+      </div>
+      <div class="unit-header__actions">
+        <a class="unit-home-link" href="index.html">Volver al menú</a>
+        <button class="index-toggle" type="button" aria-expanded="false" aria-controls="exercise-index">Índice</button>
+      </div>
+    </header>
+
+    <nav class="exercise-tabs" aria-label="Lista de ejercicios">
+      <ul>
+        <li><button type="button" data-target="45" class="tab-button active">45</button></li>
+        <li><button type="button" data-target="46" class="tab-button">46</button></li>
+        <li><button type="button" data-target="47" class="tab-button">47</button></li>
+        <li><button type="button" data-target="48" class="tab-button">48</button></li>
+        <li><button type="button" data-target="49" class="tab-button">49</button></li>
+        <li><button type="button" data-target="50" class="tab-button">50</button></li>
+        <li><button type="button" data-target="51" class="tab-button">51</button></li>
+      </ul>
+    </nav>
+
+    <aside class="exercise-index" id="exercise-index" aria-hidden="true">
+      <div class="exercise-index__header">
+        <h2>Ir a un ejercicio</h2>
+        <button class="index-close" type="button" aria-label="Cerrar índice">×</button>
+      </div>
+      <ol class="exercise-index__list">
+        <li><button type="button" data-target="45">Ej. 45</button></li>
+        <li><button type="button" data-target="46">Ej. 46</button></li>
+        <li><button type="button" data-target="47">Ej. 47</button></li>
+        <li><button type="button" data-target="48">Ej. 48</button></li>
+        <li><button type="button" data-target="49">Ej. 49</button></li>
+        <li><button type="button" data-target="50">Ej. 50</button></li>
+        <li><button type="button" data-target="51">Ej. 51</button></li>
+      </ol>
+    </aside>
+
+    <main class="unit-content">
+      <div class="exercise-carousel" data-active="45">
+        <button class="carousel-control prev" type="button" aria-label="Ejercicio anterior">&#8592;</button>
+        <div class="exercise-track">
+          <article class="exercise-card" data-exercise="45"></article>
+          <article class="exercise-card" data-exercise="46"></article>
+          <article class="exercise-card" data-exercise="47"></article>
+          <article class="exercise-card" data-exercise="48"></article>
+          <article class="exercise-card" data-exercise="49"></article>
+          <article class="exercise-card" data-exercise="50"></article>
+          <article class="exercise-card" data-exercise="51"></article>
+        </div>
+        <button class="carousel-control next" type="button" aria-label="Ejercicio siguiente">&#8594;</button>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const exerciseCards = document.querySelectorAll('.exercise-card');
+        const cardMap = {
+            '45': 'page-28.html #ex45', '46': 'page-28.html #ex46',
+            '47': 'page-29.html #ex47', '48': 'page-30.html #ex48',
+            '49': 'page-30.html #ex49', '50': 'page-31.html #ex50',
+            '51': 'page-31.html #ex51'
+        };
+
+        exerciseCards.forEach(card => {
+            const exerciseNum = card.dataset.exercise;
+            if (cardMap[exerciseNum]) {
+                const [url, selector] = cardMap[exerciseNum].split(' ');
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const content = doc.querySelector(selector);
+                        if (content) {
+                            card.innerHTML = `<header class="exercise-card__header"><p class="exercise-card__tag">Ejercicio ${exerciseNum}</p></header>`;
+                            let currentElement = content.previousElementSibling;
+                            const elementsToPrepend = [];
+                            while (currentElement && (currentElement.classList.contains('explanation-box') || currentElement.tagName === 'H1')) {
+                                elementsToPrepend.unshift(currentElement.cloneNode(true));
+                                currentElement = currentElement.previousElementSibling;
+                            }
+                            elementsToPrepend.forEach(el => card.prepend(el));
+                            card.appendChild(content);
+                        }
+                    })
+                    .catch(err => console.error(`Failed to load exercise ${exerciseNum}:`, err));
+            }
+        });
+        
+        if (window.initUnitNavigation) {
+            initUnitNavigation();
+        }
+    });
+  </script>
+</body>
+</html>
