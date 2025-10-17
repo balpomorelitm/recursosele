@@ -11,7 +11,7 @@
     <header class="unit-header">
       <div class="unit-header__info">
         <h1>Unidad 2 · Quiero aprender español</h1>
-        <p class="unit-header__subtitle">15 ejercicios interactivos para practicar pronombres, verbos, género, número y el uso de por/para.</p>
+        <p class="unit-header__subtitle">23 ejercicios interactivos para practicar la gramática y el vocabulario de la unidad.</p>
       </div>
       <div class="unit-header__actions">
         <a class="unit-home-link" href="index.html">Volver al menú</a>
@@ -36,6 +36,14 @@
         <li><button type="button" data-target="34" class="tab-button">34</button></li>
         <li><button type="button" data-target="35" class="tab-button">35</button></li>
         <li><button type="button" data-target="36" class="tab-button">36</button></li>
+        <li><button type="button" data-target="37" class="tab-button">37</button></li>
+        <li><button type="button" data-target="38" class="tab-button">38</button></li>
+        <li><button type="button" data-target="39" class="tab-button">39</button></li>
+        <li><button type="button" data-target="40" class="tab-button">40</button></li>
+        <li><button type="button" data-target="41" class="tab-button">41</button></li>
+        <li><button type="button" data-target="42" class="tab-button">42</button></li>
+        <li><button type="button" data-target="43" class="tab-button">43</button></li>
+        <li><button type="button" data-target="44" class="tab-button">44</button></li>
       </ul>
     </nav>
 
@@ -60,6 +68,14 @@
         <li><button type="button" data-target="34">Ej. 34</button></li>
         <li><button type="button" data-target="35">Ej. 35</button></li>
         <li><button type="button" data-target="36">Ej. 36</button></li>
+        <li><button type="button" data-target="37">Ej. 37</button></li>
+        <li><button type="button" data-target="38">Ej. 38</button></li>
+        <li><button type="button" data-target="39">Ej. 39</button></li>
+        <li><button type="button" data-target="40">Ej. 40</button></li>
+        <li><button type="button" data-target="41">Ej. 41</button></li>
+        <li><button type="button" data-target="42">Ej. 42</button></li>
+        <li><button type="button" data-target="43">Ej. 43</button></li>
+        <li><button type="button" data-target="44">Ej. 44</button></li>
       </ol>
     </aside>
 
@@ -83,6 +99,14 @@
           <article class="exercise-card" data-exercise="34"></article>
           <article class="exercise-card" data-exercise="35"></article>
           <article class="exercise-card" data-exercise="36"></article>
+          <article class="exercise-card" data-exercise="37"></article>
+          <article class="exercise-card" data-exercise="38"></article>
+          <article class="exercise-card" data-exercise="39"></article>
+          <article class="exercise-card" data-exercise="40"></article>
+          <article class="exercise-card" data-exercise="41"></article>
+          <article class="exercise-card" data-exercise="42"></article>
+          <article class="exercise-card" data-exercise="43"></article>
+          <article class="exercise-card" data-exercise="44"></article>
 
         </div>
         <button class="carousel-control next" type="button" aria-label="Ejercicio siguiente">&#8594;</button>
@@ -101,7 +125,11 @@
             '30': 'page-22.html #ex30', '31': 'page-22.html #ex31',
             '32': 'page-22.html #ex32', '33': 'page-23.html #ex33',
             '34': 'page-23.html #ex34', '35': 'page-24.html #ex35',
-            '36': 'page-24.html #ex36'
+            '36': 'page-24.html #ex36', '37': 'page-25.html #ex37',
+            '38': 'page-25.html #ex38', '39': 'page-25.html #ex39',
+            '40': 'page-26.html #ex40', '41': 'page-26.html #ex41',
+            '42': 'page-26.html #ex42', '43': 'page-27.html #ex43',
+            '44': 'page-27.html #ex44'
         };
 
         exerciseCards.forEach(card => {
@@ -116,11 +144,15 @@
                         const content = doc.querySelector(selector);
                         if (content) {
                             card.innerHTML = `<header class="exercise-card__header"><p class="exercise-card__tag">Ejercicio ${exerciseNum}</p></header>`;
-                            // Also fetch and append any preceding explanation box if it exists
-                            const explanation = content.previousElementSibling;
-                            if (explanation && (explanation.classList.contains('explanation-box') || explanation.tagName === 'H1')) {
-                                card.prepend(explanation.cloneNode(true));
+                            
+                            let currentElement = content.previousElementSibling;
+                            const elementsToPrepend = [];
+                            while (currentElement && (currentElement.classList.contains('explanation-box') || currentElement.tagName === 'H1')) {
+                                elementsToPrepend.unshift(currentElement.cloneNode(true));
+                                currentElement = currentElement.previousElementSibling;
                             }
+                            elementsToPrepend.forEach(el => card.prepend(el));
+                            
                             card.appendChild(content);
                         }
                     })
@@ -128,7 +160,6 @@
             }
         });
         
-        // This was already in your main.js but we call it after dynamically loading content.
         if (window.initUnitNavigation) {
             initUnitNavigation();
         }

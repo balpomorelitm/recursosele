@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 27 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SONIDOS Y LETRAS</h1>
+        <div class="exercise" id="ex43">
+            <h3>22. Listen to the following words and circle the ones you hear.</h3>
+            <div class="audio-box">
+                <audio controls preload="none">
+                  <source src="audio/unidad2-ej22.mp3" type="audio/mpeg">
+                  Tu navegador no soporta el elemento <code>audio</code>.
+                </audio>
+                <p class="note">Añade aquí el archivo de audio cuando esté disponible.</p>
+            </div>
+            <p>
+                <span class="word-group"><input type="checkbox" id="w43a1" value="bailas"> <label for="w43a1">bailas</label></span>
+                <span class="word-group"><input type="checkbox" data-answer="bailáis" id="w43a2" value="bailáis"> <label for="w43a2">bailáis</label></span>
+            </p>
+            <p>
+                <span class="word-group"><input type="checkbox" data-answer="entiendes" id="w43b1" value="entiendes"> <label for="w43b1">entiendes</label></span>
+                <span class="word-group"><input type="checkbox" id="w43b2" value="entendéis"> <label for="w43b2">entendéis</label></span>
+            </p>
+            <p>
+                <span class="word-group"><input type="checkbox" data-answer="cocinas" id="w43c1" value="cocinas"> <label for="w43c1">cocinas</label></span>
+                <span class="word-group"><input type="checkbox" id="w43c2" value="cocináis"> <label for="w43c2">cocináis</label></span>
+            </p>
+            <p>
+                <span class="word-group"><input type="checkbox" id="w43d1" value="escribes"> <label for="w43d1">escribes</label></span>
+                <span class="word-group"><input type="checkbox" data-answer="escribís" id="w43d2" value="escribís"> <label for="w43d2">escribís</label></span>
+            </p>
+            <p>
+                <span class="word-group"><input type="checkbox" id="w43e1" value="comes"> <label for="w43e1">comes</label></span>
+                <span class="word-group"><input type="checkbox" data-answer="coméis" id="w43e2" value="coméis"> <label for="w43e2">coméis</label></span>
+            </p>
+             <p>
+                <span class="word-group"><input type="checkbox" id="w43f1" value="vives"> <label for="w43f1">vives</label></span>
+                <span class="word-group"><input type="checkbox" data-answer="vivís" id="w43f2" value="vivís"> <label for="w43f2">vivís</label></span>
+            </p>
+             <p>
+                <span class="word-group"><input type="checkbox" data-answer="lees" id="w43g1" value="lees"> <label for="w43g1">lees</label></span>
+                <span class="word-group"><input type="checkbox" id="w43g2" value="leéis"> <label for="w43g2">leéis</label></span>
+            </p>
+            <button type="button" onclick="checkSelectedWords('ex43')">Corregir</button>
+            <div class="result" id="result-ex43"></div>
+        </div>
+
+        <h1>EN COMPARACIÓN</h1>
+        <div class="exercise" id="ex44">
+            <table class="comparison-table">
+                <thead><tr><th>EN ESPAÑOL</th><th>EN INGLÉS</th></tr></thead>
+                <tbody>
+                    <tr><td>Queremos ir a Argentina para aprender a bailar tango.</td><td><input type="text" data-answer="we want to go to argentina to learn to dance tango" size="50"></td></tr>
+                    <tr><td><input type="text" data-answer="estudio alemán por mi trabajo" size="50"></td><td>I study German because of my job.</td></tr>
+                    <tr><td>Marina quiere hacer un curso de flamenco.</td><td><input type="text" data-answer="marina wants to do a flamenco course" size="50"></td></tr>
+                    <tr><td><input type="text" data-answer="ella baila salsa pero yo bailo chachachá" size="50"></td><td>She dances salsa but I dance chachachá.</td></tr>
+                    <tr><td>Mi madre cocina platos españoles.</td><td><input type="text" data-answer="my mother cooks spanish dishes" size="50"></td></tr>
+                    <tr><td><input type="text" data-answer="quiero ir de compras" size="50"></td><td>I want to go shopping.</td></tr>
+                    <tr><td>Trabajo en un hotel de la Costa del Sol.</td><td><input type="text" data-answer="i work in a hotel on the costa del sol" size="50"></td></tr>
+                    <tr><td><input type="text" data-answer="¿habláis español tú y sven?" size="50"></td><td>Do you and Sven speak Spanish?</td></tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="checkExercise('ex44')">Corregir</button>
+            <div class="result" id="result-ex44"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
