@@ -8,6 +8,56 @@ body {
   line-height: 1.6;
 }
 
+/* Define color palette for each unit */
+:root {
+  --unit-1-primary: #e67e22;
+  --unit-1-secondary: #fdf3e2;
+
+  --unit-2-primary: #27ae60;
+  --unit-2-secondary: #eafaf1;
+
+  --unit-3-primary: #2980b9;
+  --unit-3-secondary: #ebf5fb;
+
+  /* Add more units here with unique colors */
+}
+
+.unit-1 .unit-header {
+  background: linear-gradient(135deg, var(--unit-1-primary) 0%, var(--unit-1-secondary) 100%);
+  color: var(--unit-1-primary);
+}
+
+.unit-1 .unit-header__subtitle,
+.unit-1 .tab-button,
+.unit-1 .carousel-control {
+  background-color: var(--unit-1-primary);
+  color: #fff;
+}
+
+.unit-2 .unit-header {
+  background: linear-gradient(135deg, var(--unit-2-primary) 0%, var(--unit-2-secondary) 100%);
+  color: var(--unit-2-primary);
+}
+
+.unit-2 .unit-header__subtitle,
+.unit-2 .tab-button,
+.unit-2 .carousel-control {
+  background-color: var(--unit-2-primary);
+  color: #fff;
+}
+
+.unit-3 .unit-header {
+  background: linear-gradient(135deg, var(--unit-3-primary) 0%, var(--unit-3-secondary) 100%);
+  color: var(--unit-3-primary);
+}
+
+.unit-3 .unit-header__subtitle,
+.unit-3 .tab-button,
+.unit-3 .carousel-control {
+  background-color: var(--unit-3-primary);
+  color: #fff;
+}
+
 .unit-layout {
   min-height: 100vh;
   display: flex;
@@ -36,6 +86,9 @@ body {
   margin: 0.25em 0 0;
   color: #6b4b2b;
   font-size: 0.95rem;
+  display: inline-block;
+  padding: 0.4em 0.75em;
+  border-radius: 999px;
 }
 
 .unit-header__actions {
@@ -108,18 +161,21 @@ body {
   border-radius: 999px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, background-color, box-shadow;
 }
 
 .tab-button:hover,
 .tab-button:focus-visible {
-  background-color: #d9731f;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #bf651b;
   color: #fff;
 }
 
 .tab-button.active {
-  background-color: #d9731f;
-  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
 }
 
 .exercise-index {
@@ -210,6 +266,13 @@ body {
 
 .exercise-card {
   margin-bottom: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(217, 115, 31, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.exercise-card:hover {
+  box-shadow: 0 8px 24px rgba(217, 115, 31, 0.3);
 }
 
 body.js-enabled .exercise-card {
@@ -218,7 +281,7 @@ body.js-enabled .exercise-card {
 
 body.js-enabled .exercise-card.active {
   display: block;
-  animation: fadeIn 0.3s ease;
+  animation: fadeSlideUp 0.4s ease forwards;
 }
 
 .exercise-card__header {
@@ -253,21 +316,24 @@ body.js-enabled .exercise-card.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, background-color, box-shadow;
 }
 
 .carousel-control:hover,
 .carousel-control:focus-visible {
-  background-color: #d9731f;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #bf651b;
   color: #fff;
 }
 
-@keyframes fadeIn {
-  from {
+@keyframes fadeSlideUp {
+  0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -301,6 +367,12 @@ header, main {
 h1, h2, h3 {
   color: #d9731f;
   font-weight: 600;
+}
+
+.unit-header h1,
+.unit-header h2,
+.unit-header h3 {
+  color: inherit;
 }
 
 .exercise {
@@ -829,13 +901,23 @@ input.incorrect, select.incorrect, textarea.incorrect {
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, background-color, box-shadow;
 }
 
 .unit-card__button:hover,
 .unit-card__button:focus-visible {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   background-color: #bf651b;
-  transform: translateY(-1px);
+}
+
+/* Focus states for accessibility */
+.tab-button:focus-visible,
+.carousel-control:focus-visible,
+.unit-card__button:focus-visible {
+  outline: 3px solid #f1c40f;
+  outline-offset: 3px;
 }
 
 .unit-card--soon {
