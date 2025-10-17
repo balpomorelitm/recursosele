@@ -73,6 +73,76 @@ function checkExercise(exerciseId) {
 }
 
 /**
+ * Reveals the correct answers for the given exercise.
+ * @param {string} exerciseId The ID of the exercise container div.
+ */
+function showAnswers(exerciseId) {
+  const exerciseContainer = document.getElementById(exerciseId);
+  if (!exerciseContainer) {
+    console.warn(`Exercise container with id "${exerciseId}" not found.`);
+    return;
+  }
+
+  const resultContainer = document.getElementById(`result-${exerciseId}`);
+
+  const textInputs = exerciseContainer.querySelectorAll('input[type="text"]');
+  textInputs.forEach(input => {
+    const dataAnswer = input.getAttribute('data-answer');
+    if (!dataAnswer) {
+      return;
+    }
+
+    const firstAnswer = dataAnswer.split('|')[0].trim();
+    input.value = firstAnswer;
+    input.classList.remove('incorrect');
+    input.classList.add('correct');
+  });
+
+  const selectInputs = exerciseContainer.querySelectorAll('select');
+  selectInputs.forEach(select => {
+    const dataAnswer = select.getAttribute('data-answer');
+    if (!dataAnswer) {
+      return;
+    }
+
+    const firstAnswer = dataAnswer.split('|')[0].trim();
+    if (firstAnswer) {
+      select.value = firstAnswer;
+    }
+    select.classList.remove('incorrect');
+    select.classList.add('correct');
+  });
+
+  const questionRows = exerciseContainer.querySelectorAll('tr[data-answer], .match-item[data-answer]');
+  questionRows.forEach(row => {
+    const correctAnswer = row.getAttribute('data-answer');
+    const radioButtons = row.querySelectorAll('input[type="radio"]');
+    const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+
+    if (radioButtons.length) {
+      radioButtons.forEach(radio => {
+        radio.checked = radio.value === correctAnswer;
+      });
+      row.classList.remove('incorrect');
+      row.classList.add('correct');
+    }
+
+    if (checkboxes.length) {
+      checkboxes.forEach(box => {
+        box.checked = box.value === correctAnswer;
+      });
+      row.classList.remove('incorrect');
+      row.classList.add('correct');
+    }
+  });
+
+  if (resultContainer) {
+    resultContainer.textContent = 'Respuestas mostradas. ¡Repasa y vuelve a intentarlo cuando quieras!';
+    resultContainer.style.color = '#6b4b2b';
+  }
+}
+
+/**
  * Checks exercises with radio buttons where the answer is on the parent container.
  * @param {string} exerciseId The ID of the exercise container div.
  */
