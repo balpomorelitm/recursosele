@@ -5,6 +5,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .unit-layout {
@@ -321,7 +322,7 @@ h1, h2, h3 {
 }
 
 .exercise p {
-  margin: 0.5em 0;
+  margin: 0.75em 0;
 }
 
 .exercise button {
@@ -332,10 +333,31 @@ h1, h2, h3 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .exercise button:hover {
   background-color: #bf651b;
+}
+
+.exercise button + button {
+  margin-left: 0.5em;
+}
+
+.button--ghost {
+  background-color: #fff;
+  color: #d9731f;
+  border: 1px solid #d9731f;
+}
+
+.button--ghost:hover {
+  background-color: #fef3e2;
+  color: #bf651b;
+  border-color: #bf651b;
 }
 
 input.correct, select.correct {
@@ -397,6 +419,22 @@ input.incorrect, select.incorrect {
   flex-direction: column;
   align-items: center;
   gap: 0.5em;
+}
+
+.image-placeholder {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef3e2 0%, #fde2c3 100%);
+  border: 2px dashed #d9731f;
+  border-radius: 12px;
+  color: #6b4b2b;
+  font-weight: 600;
+  padding: 0.5em;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .image-item img {
@@ -567,6 +605,78 @@ input.incorrect, select.incorrect {
     margin-right: 5px;
 }
 
+.answer-key {
+  margin: 1em 0;
+  padding: 1em;
+  background-color: #fff9f0;
+  border: 1px solid #f0c799;
+  border-radius: 6px;
+}
+
+.answer-key h4 {
+  margin: 0 0 0.75em;
+  color: #6b4b2b;
+}
+
+.reference-table,
+.matching-input-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reference-table th,
+.reference-table td,
+.matching-input-table th,
+.matching-input-table td {
+  border: 1px solid #ddd;
+  padding: 0.65em;
+  text-align: left;
+}
+
+.reference-table th {
+  background-color: #fef3e2;
+}
+
+.reference-table td:first-child,
+.reference-table td:nth-child(2) {
+  text-align: center;
+  width: 60px;
+}
+
+.matching-input-table th {
+  background-color: #f9f1e6;
+}
+
+.matching-input-table td:last-child {
+  width: 120px;
+  text-align: center;
+}
+
+.matching-input-table input[type="text"] {
+  width: 100%;
+  max-width: 80px;
+  text-align: center;
+}
+
+.exercise-instruction {
+  margin: 1em 0 0.5em;
+  font-weight: 500;
+  color: #6b4b2b;
+}
+
+.audio-box {
+  margin: 1em 0 1.5em;
+  padding: 1em;
+  background-color: #fff9f0;
+  border: 1px dashed #d9731f;
+  border-radius: 6px;
+}
+
+.audio-box audio {
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
 .word-bank {
     background-color: #fef9e7;
     border: 1px solid #f1c40f;
@@ -577,16 +687,6 @@ input.incorrect, select.incorrect {
     gap: 15px;
     justify-content: center;
     border-radius: 4px;
-}
-
-.matching-grid-ex4 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-}
-.matching-grid-ex4 .match-item {
-    display: flex;
-    align-items: center;
 }
 
 .text-block {
