@@ -11,7 +11,7 @@
     <header class="unit-header">
       <div class="unit-header__info">
         <h1>Unidad 2 · Quiero aprender español</h1>
-        <p class="unit-header__subtitle">6 ejercicios interactivos para practicar pronombres y la conjugación de verbos regulares.</p>
+        <p class="unit-header__subtitle">15 ejercicios interactivos para practicar pronombres, verbos, género, número y el uso de por/para.</p>
       </div>
       <div class="unit-header__actions">
         <a class="unit-home-link" href="index.html">Volver al menú</a>
@@ -27,6 +27,15 @@
         <li><button type="button" data-target="25" class="tab-button">25</button></li>
         <li><button type="button" data-target="26" class="tab-button">26</button></li>
         <li><button type="button" data-target="27" class="tab-button">27</button></li>
+        <li><button type="button" data-target="28" class="tab-button">28</button></li>
+        <li><button type="button" data-target="29" class="tab-button">29</button></li>
+        <li><button type="button" data-target="30" class="tab-button">30</button></li>
+        <li><button type="button" data-target="31" class="tab-button">31</button></li>
+        <li><button type="button" data-target="32" class="tab-button">32</button></li>
+        <li><button type="button" data-target="33" class="tab-button">33</button></li>
+        <li><button type="button" data-target="34" class="tab-button">34</button></li>
+        <li><button type="button" data-target="35" class="tab-button">35</button></li>
+        <li><button type="button" data-target="36" class="tab-button">36</button></li>
       </ul>
     </nav>
 
@@ -36,46 +45,63 @@
         <button class="index-close" type="button" aria-label="Cerrar índice">×</button>
       </div>
       <ol class="exercise-index__list">
-        <li><button type="button" data-target="22">Ejercicio 22</button></li>
-        <li><button type="button" data-target="23">Ejercicio 23</button></li>
-        <li><button type="button" data-target="24">Ejercicio 24</button></li>
-        <li><button type="button" data-target="25">Ejercicio 25</button></li>
-        <li><button type="button" data-target="26">Ejercicio 26</button></li>
-        <li><button type="button" data-target="27">Ejercicio 27</button></li>
+        <li><button type="button" data-target="22">Ej. 22</button></li>
+        <li><button type="button" data-target="23">Ej. 23</button></li>
+        <li><button type="button" data-target="24">Ej. 24</button></li>
+        <li><button type="button" data-target="25">Ej. 25</button></li>
+        <li><button type="button" data-target="26">Ej. 26</button></li>
+        <li><button type="button" data-target="27">Ej. 27</button></li>
+        <li><button type="button" data-target="28">Ej. 28</button></li>
+        <li><button type="button" data-target="29">Ej. 29</button></li>
+        <li><button type="button" data-target="30">Ej. 30</button></li>
+        <li><button type="button" data-target="31">Ej. 31</button></li>
+        <li><button type="button" data-target="32">Ej. 32</button></li>
+        <li><button type="button" data-target="33">Ej. 33</button></li>
+        <li><button type="button" data-target="34">Ej. 34</button></li>
+        <li><button type="button" data-target="35">Ej. 35</button></li>
+        <li><button type="button" data-target="36">Ej. 36</button></li>
       </ol>
     </aside>
 
     <main class="unit-content">
       <div class="exercise-carousel" data-active="22">
         <button class="carousel-control prev" type="button" aria-label="Ejercicio anterior">&#8592;</button>
-        <noscript>
-          <div class="noscript-message">
-            Activa JavaScript en tu navegador para navegar por los ejercicios mediante las flechas y el índice.
-          </div>
-        </noscript>
         <div class="exercise-track">
+          
           <article class="exercise-card" data-exercise="22"></article>
           <article class="exercise-card" data-exercise="23"></article>
           <article class="exercise-card" data-exercise="24"></article>
           <article class="exercise-card" data-exercise="25"></article>
           <article class="exercise-card" data-exercise="26"></article>
           <article class="exercise-card" data-exercise="27"></article>
+          <article class="exercise-card" data-exercise="28"></article>
+          <article class="exercise-card" data-exercise="29"></article>
+          <article class="exercise-card" data-exercise="30"></article>
+          <article class="exercise-card" data-exercise="31"></article>
+          <article class="exercise-card" data-exercise="32"></article>
+          <article class="exercise-card" data-exercise="33"></article>
+          <article class="exercise-card" data-exercise="34"></article>
+          <article class="exercise-card" data-exercise="35"></article>
+          <article class="exercise-card" data-exercise="36"></article>
+
         </div>
         <button class="carousel-control next" type="button" aria-label="Ejercicio siguiente">&#8594;</button>
       </div>
     </main>
   </div>
+  <script src="js/main.js"></script>
   <script>
-    // This script will dynamically load the content of each exercise page into the carousel.
     document.addEventListener('DOMContentLoaded', () => {
         const exerciseCards = document.querySelectorAll('.exercise-card');
         const cardMap = {
-            '22': 'page-17.html #ex22',
-            '23': 'page-18.html #ex23',
-            '24': 'page-19.html #ex24',
-            '25': 'page-19.html #ex25',
-            '26': 'page-20.html #ex26',
-            '27': 'page-20.html #ex27'
+            '22': 'page-17.html #ex22', '23': 'page-18.html #ex23',
+            '24': 'page-19.html #ex24', '25': 'page-19.html #ex25',
+            '26': 'page-20.html #ex26', '27': 'page-20.html #ex27',
+            '28': 'page-21.html #ex28', '29': 'page-21.html #ex29',
+            '30': 'page-22.html #ex30', '31': 'page-22.html #ex31',
+            '32': 'page-22.html #ex32', '33': 'page-23.html #ex33',
+            '34': 'page-23.html #ex34', '35': 'page-24.html #ex35',
+            '36': 'page-24.html #ex36'
         };
 
         exerciseCards.forEach(card => {
@@ -89,25 +115,24 @@
                         const doc = parser.parseFromString(html, 'text/html');
                         const content = doc.querySelector(selector);
                         if (content) {
-                            const headerTemplate = `
-                              <header class="exercise-card__header">
-                                <p class="exercise-card__tag">Ejercicio ${exerciseNum}</p>
-                              </header>
-                            `;
-                            card.innerHTML = headerTemplate;
+                            card.innerHTML = `<header class="exercise-card__header"><p class="exercise-card__tag">Ejercicio ${exerciseNum}</p></header>`;
+                            // Also fetch and append any preceding explanation box if it exists
+                            const explanation = content.previousElementSibling;
+                            if (explanation && (explanation.classList.contains('explanation-box') || explanation.tagName === 'H1')) {
+                                card.prepend(explanation.cloneNode(true));
+                            }
                             card.appendChild(content);
                         }
                     })
                     .catch(err => console.error(`Failed to load exercise ${exerciseNum}:`, err));
             }
         });
-
-        // Initialize navigation logic
-        if (typeof initUnitNavigation === 'function') {
-          initUnitNavigation();
+        
+        // This was already in your main.js but we call it after dynamically loading content.
+        if (window.initUnitNavigation) {
+            initUnitNavigation();
         }
     });
   </script>
-  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 23 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>NOUN NUMBER</h1>
+        <div class="explanation-box">
+            <p>The plural form of nouns is formed by adding an <strong>-s</strong> to the words ending in a vowel (<strong>casa &gt; casas</strong>) or <strong>-es</strong> to words ending in a consonant (<strong>ordenador &gt; ordenadores</strong>). If that consonant is a <strong>-z</strong>, the plural is spelled by replacing the <strong>-z</strong> with <strong>-c-</strong> (<strong>lápiz &gt; lápices</strong>).</p>
+            <p>Keep in mind that the number affects the noun and other words depending on it, such as articles and adjectives:</p>
+            <div class="two-column-text">
+                <div>
+                    <p class="example-text"><em><strong>La</strong> películ<strong>a</strong> español<strong>a</strong></em></p>
+                    <p class="example-text"><em><strong>El</strong> actor español</em></p>
+                </div>
+                <div>
+                    <p class="example-text"><em><strong>Las</strong> películ<strong>as</strong> español<strong>as</strong></em></p>
+                    <p class="example-text"><em><strong>Los</strong> actor<strong>es</strong> español<strong>es</strong></em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise" id="ex33">
+            <h3>12. Write the plural form of these words in the corresponding column.</h3>
+            <div class="grid-inputs two-columns">
+                <div>
+                    <p>museo <input type="text" data-answer="museos" size="15"></p>
+                    <p>ciudad <input type="text" data-answer="ciudades" size="15"></p>
+                    <p>canción <input type="text" data-answer="canciones" size="15"></p>
+                    <p>fiesta <input type="text" data-answer="fiestas" size="15"></p>
+                </div>
+                <div>
+                    <p>baile <input type="text" data-answer="bailes" size="15"></p>
+                    <p>curso <input type="text" data-answer="cursos" size="15"></p>
+                    <p>película <input type="text" data-answer="películas" size="15"></p>
+                    <p>sesión <input type="text" data-answer="sesiones" size="15"></p>
+                </div>
+            </div>
+            <button onclick="checkExercise('ex33')">Corregir</button>
+            <div class="result" id="result-ex33"></div>
+        </div>
+
+        <div class="exercise" id="ex34">
+            <h3>13. Read the following sentences and decide if they express a reason (why?) or a purpose (what for?).</h3>
+            <table class="check-table">
+                <thead><tr><th></th><th>A REASON</th><th>A PURPOSE</th></tr></thead>
+                <tbody>
+                    <tr data-answer="reason"><td><strong>a.</strong> Quiero estudiar español por mi trabajo.</td><td><input type="radio" name="q34a" value="reason"></td><td><input type="radio" name="q34a" value="purpose"></td></tr>
+                    <tr data-answer="purpose"><td><strong>b.</strong> Quiero estudiar español para viajar a Sudamérica.</td><td><input type="radio" name="q34b" value="reason"></td><td><input type="radio" name="q34b" value="purpose"></td></tr>
+                    <tr data-answer="reason"><td><strong>c.</strong> Estudio español porque mi novio es peruano.</td><td><input type="radio" name="q34c" value="reason"></td><td><input type="radio" name="q34c" value="purpose"></td></tr>
+                    <tr data-answer="reason"><td><strong>d.</strong> Soy española pero vivo en Glasgow por amor.</td><td><input type="radio" name="q34d" value="reason"></td><td><input type="radio" name="q34d" value="purpose"></td></tr>
+                    <tr data-answer="purpose"><td><strong>e.</strong> Estudio español porque quiero vivir en Madrid.</td><td><input type="radio" name="q34e" value="reason"></td><td><input type="radio" name="q34e" value="purpose"></td></tr>
+                </tbody>
+            </table>
+            <button onclick="checkRadioExercise('ex34')">Corregir</button>
+            <div class="result" id="result-ex34"></div>
+        </div>
+
+        <div class="explanation-box">
+            <h3>POR / PARA / PORQUE</h3>
+            <p>In Spanish, <strong>por</strong> and <strong>porque</strong> are used to express a reason:</p>
+            <p><strong>› Por</strong> is followed by a noun: <em>Estudio español <strong>por mi novia</strong>.</em></p>
+            <p><strong>› Porque</strong> is followed by a sentence: <em>Hablo inglés <strong>porque mi madre es irlandesa</strong>.</em></p>
+            <p>To express a purpose, we use <strong>para</strong>. <strong>Para</strong> is followed by an infinitive:</p>
+            <p class="example-text"><em>Escucho canciones en español <strong>para mejorar</strong> mi pronunciación.</em></p>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

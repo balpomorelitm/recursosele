@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 22 - Ejercicios de Español</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="exercise" id="ex30">
+            <h3>9. Classify these nouns using the correct definite article (el o la).</h3>
+            <div class="word-bank">
+                <span>garaje</span> <span>color</span> <span>curso</span> <span>foto</span> <span>mano</span> <span>paisaje</span> <span>radio</span> <span>amor</span> <span>error</span> <span>traducción</span> <span>canción</span> <span>ciudad</span> <span>libertad</span> <span>viaje</span> <span>humor</span>
+            </div>
+            <table class="comparison-table">
+                <thead><tr><th>MASCULINO</th><th>FEMENINO</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>-o</strong></td><td><input type="text" data-answer="el curso" size="25"></td><td><input type="text" data-answer="la foto, la mano, la radio" size="25"></td></tr>
+                    <tr><td><strong>-aje, -or</strong></td><td><input type="text" data-answer="el garaje, el color, el paisaje, el amor, el error, el viaje, el humor" size="25"></td><td></td></tr>
+                    <tr><td><strong>-ción, -sión, -tad, -dad</strong></td><td></td><td><input type="text" data-answer="la traducción, la canción, la ciudad, la libertad" size="25"></td></tr>
+                </tbody>
+            </table>
+            <button onclick="checkExercise('ex30')">Corregir</button>
+            <div class="result" id="result-ex30"></div>
+        </div>
+
+        <div class="exercise" id="ex31">
+            <h3>10. Classify these nouns. Use a dictionary where necessary.</h3>
+            <div class="word-bank">
+                <span>noche</span> <span>árbol</span> <span>móvil</span> <span>planeta</span> <span>papel</span> <span>gente</span> <span>café</span> <span>día</span> <span>suerte</span> <span>mapa</span> <span>clase</span> <span>idioma</span> <span>sol</span> <span>excursión</span> <span>semana</span>
+            </div>
+            <table class="comparison-table">
+                <thead><tr><th>MASCULINO</th><th>FEMENINO</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="line-input" data-answer="árbol, móvil, planeta, papel, café, día, mapa, idioma, sol"></td>
+                        <td><input type="text" class="line-input" data-answer="noche, gente, suerte, clase, excursión, semana"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="checkExercise('ex31')">Corregir</button>
+            <div class="result" id="result-ex31"></div>
+        </div>
+
+        <div class="exercise" id="ex32">
+            <h3>11. Now fill in these rules to learn more about how noun gender works in Spanish.</h3>
+            <ul>
+                <li>Nouns ending in <strong>-o</strong> are usually <u>masculine</u> (for example <input type="text" data-answer="libro" size="10">), although there are some exceptions like <input type="text" data-answer="mano" size="10">.</li>
+                <li>Nouns ending in <strong>-a</strong> are usually <input type="text" data-answer="feminine" size="10"> (for example <input type="text" data-answer="casa" size="10">), although some nouns ending in <strong>-a</strong> are <input type="text" data-answer="masculine" size="10">, like <input type="text" data-answer="mapa" size="10">.</li>
+                <li>Nouns ending in <strong>-e</strong> or <strong>-ista</strong> are generally <input type="text" data-answer="invariable" size="12"> (for example <input type="text" data-answer="estudiante" size="12">).</li>
+                <li>Nouns ending in <strong>-or</strong> can be masculine (for example <input type="text" data-answer="profesor" size="10">) or feminine (<input type="text" data-answer="flor" size="10">).</li>
+                <li>Nouns ending in <strong>-ción</strong>, <strong>-sión</strong>, <strong>-tad</strong> and <strong>-dad</strong> are always <input type="text" data-answer="feminine" size="10"> (for example <input type="text" data-answer="canción" size="10"> and <input type="text" data-answer="ciudad" size="10">).</li>
+            </ul>
+            <button onclick="checkExercise('ex32')">Corregir</button>
+            <div class="result" id="result-ex32"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
