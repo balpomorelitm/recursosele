@@ -18,13 +18,41 @@
             
             <p>Santiago de Compostela tiene <select data-answer="una"><option></option><option>una</option><option>la</option></select> población de aproximadamente 97 000 habitantes y más de diez siglos de historia. Esta ciudad, situada en <select data-answer="el"><option></option><option>un</option><option>el</option></select> noroeste de la península ibérica, es <select data-answer="la"><option></option><option>una</option><option>la</option></select> capital de Galicia, <select data-answer="una"><option></option><option>una</option><option>la</option></select> comunidad autónoma de España.</p>
             
-            <button onclick="checkExercise('ex50')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex50')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex50')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex50')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex50"></div>
         </div>
 
         <div class="exercise" id="ex51">
             <h3>7. Now translate the previous texts into English and notice the use of articles in both languages.</h3>
-            <p class="note">(This is a writing exercise for self-study. No auto-correction.)</p>
+            <p class="note">Lee de nuevo los textos del ejercicio 6 y escribe tu traducción al inglés. Puedes comparar tu propuesta con la respuesta orientativa.</p>
+            <div class="text-block">
+                <h4>Santiago de Chile</h4>
+                <p>Santiago de Chile es la capital de Chile y está en el centro del país. Fundada en el siglo xvi, la ciudad tiene muchos lugares de interés turístico: la plaza de Armas, el palacio de La Moneda, la iglesia de Santo Domingo, el Mercado Central, el Museo Histórico Nacional...</p>
+                <label for="ex51-chile" class="sr-only">Tu traducción de Santiago de Chile</label>
+                <textarea id="ex51-chile" rows="4" placeholder="Escribe aquí tu traducción" data-answer="Santiago de Chile is the capital of Chile and is in the centre of the country. Founded in the 16th century, the city has many tourist attractions: the Plaza de Armas, the La Moneda palace, the church of Santo Domingo, the Central Market, the National History Museum..."></textarea>
+            </div>
+            <div class="text-block">
+                <h4>Santiago de Cuba</h4>
+                <p>Santiago de Cuba es la segunda ciudad más importante de Cuba, después de La Habana, la capital actual. Está situada en el sureste de la isla y tiene casi medio millón de habitantes. Santiago de Cuba tiene importantes construcciones de interés turístico e histórico, como el castillo de San Pedro de la Roca o la primera catedral de Cuba.</p>
+                <label for="ex51-cuba" class="sr-only">Tu traducción de Santiago de Cuba</label>
+                <textarea id="ex51-cuba" rows="4" placeholder="Escribe aquí tu traducción" data-answer="Santiago de Cuba is the second most important city in Cuba, after Havana, the current capital. It is located in the southeast of the island and has almost half a million inhabitants. Santiago de Cuba has important buildings of tourist and historical interest, such as the castle of San Pedro de la Roca or the first cathedral in Cuba."></textarea>
+            </div>
+            <div class="text-block">
+                <h4>Santiago de Compostela</h4>
+                <p>Santiago de Compostela tiene una población de aproximadamente 97&nbsp;000 habitantes y más de diez siglos de historia. Esta ciudad, situada en el noroeste de la península ibérica, es la capital de Galicia, una comunidad autónoma de España.</p>
+                <label for="ex51-compostela" class="sr-only">Tu traducción de Santiago de Compostela</label>
+                <textarea id="ex51-compostela" rows="3" placeholder="Escribe aquí tu traducción" data-answer="Santiago de Compostela has a population of approximately 97,000 inhabitants and more than ten centuries of history. This city, located in the northwest of the Iberian Peninsula, is the capital of Galicia, an autonomous community of Spain."></textarea>
+            </div>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkOpenExercise('ex51')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex51')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex51')">Borrar todo</button>
+            </div>
+            <div class="result" id="result-ex51"></div>
         </div>
     </div>
     <script src="js/main.js"></script>

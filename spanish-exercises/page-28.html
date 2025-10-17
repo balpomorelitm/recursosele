@@ -26,7 +26,11 @@
             <p>i. Las tortillas con guacamole son un plato típico de México. <input type="text" data-answer="1" size="2"></p>
             <p>j. Las cataratas de Iguazú están en la frontera de Argentina y Brasil. <input type="text" data-answer="2" size="2"></p>
             
-            <button onclick="checkExercise('ex45')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex45')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex45')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex45')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex45"></div>
         </div>
 
@@ -35,7 +39,11 @@
             <p>• To define or describe I use the verb <input type="text" class="line-input" data-answer="ser"></p>
             <p>• To locate I use the verb <input type="text" class="line-input" data-answer="estar"></p>
             <p>• To refer to the existence of something or someone I use the verb <input type="text" class="line-input" data-answer="haber"></p>
-            <button onclick="checkExercise('ex46')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex46')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex46')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex46')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex46"></div>
         </div>
     </div>

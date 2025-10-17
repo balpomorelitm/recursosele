@@ -36,7 +36,11 @@
                 <p>Eso sí, en verano hace <input type="text" data-answer="mucho" size="8"> calor, sobre todo en el sur, porque el clima es <input type="text" data-answer="muy" size="8"> seco (hace <input type="text" data-answer="mucho" size="8"> sol y no llueve <input type="text" data-answer="mucho" size="8">).</p>
                 <p>Mañana vamos a Guadalupe. Queremos ver un monasterio <input type="text" data-answer="muy" size="8"> famoso que es Patrimonio de la Humanidad.</p>
             </div>
-            <button onclick="checkExercise('ex54')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex54')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex54')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex54')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex54"></div>
         </div>
     </div>

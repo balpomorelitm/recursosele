@@ -29,7 +29,11 @@
             <p>• El Everest es <input type="text" data-answer="la montaña más alta del mundo" class="line-input"></p>
             <p>• El Amazonas es <input type="text" data-answer="el río más largo de Hispanoamérica" class="line-input"></p>
             <p>• México es <input type="text" data-answer="el país más poblado de América" class="line-input"></p>
-            <button onclick="checkExercise('ex52')">Corregir</button>
+            <div class="exercise-controls" style="margin-top: 1em;">
+                <button data-role="check" onclick="checkExercise('ex52')">Corregir</button>
+                <button class="button--ghost" data-role="show-answers" onclick="showAnswers('ex52')">Mostrar respuestas</button>
+                <button class="button--ghost" data-role="clear" onclick="clearExercise('ex52')">Borrar todo</button>
+            </div>
             <div class="result" id="result-ex52"></div>
         </div>
     </div>
